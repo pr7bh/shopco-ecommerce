@@ -113,8 +113,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 212,
     originalPrice: 232,
     images: [
-      "https://images.pexels.com/photos/2810544/pexels-photo-2810544.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2810544/pexels-photo-2810544.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["shirt", "striped", "top-selling"],
