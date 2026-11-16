@@ -14,7 +14,8 @@ const CORE_PRODUCTS: Product[] = [
       "A clean minimalist tee with subtle tape detail on the sleeves. Crafted from 100% combed cotton for all-day comfort.",
     price: 120,
     images: [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["t-shirt", "casual", "new"],
@@ -37,7 +38,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 240,
     originalPrice: 260,
     images: [
-      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["jeans", "denim", "new"],
@@ -60,7 +62,8 @@ const CORE_PRODUCTS: Product[] = [
       "A timeless checkered pattern shirt in a relaxed fit. Perfect for casual outings or layering.",
     price: 180,
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["shirt", "checkered", "new"],
@@ -83,7 +86,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 130,
     originalPrice: 160,
     images: [
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["t-shirt", "striped", "new"],
@@ -109,7 +113,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 212,
     originalPrice: 232,
     images: [
-      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/2810544/pexels-photo-2810544.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2810544/pexels-photo-2810544.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["shirt", "striped", "top-selling"],
@@ -132,7 +137,8 @@ const CORE_PRODUCTS: Product[] = [
       "A statement graphic tee featuring bold typography. Printed on premium heavyweight cotton.",
     price: 145,
     images: [
-      "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["t-shirt", "graphic", "top-selling"],
@@ -154,7 +160,8 @@ const CORE_PRODUCTS: Product[] = [
       "Relaxed-cut Bermuda shorts in a durable twill fabric. Ideal for warm days and active lifestyles.",
     price: 80,
     images: [
-      "https://images.unsplash.com/photo-1565084888279-aca607bb1d64?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/2770735/pexels-photo-2770735.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2770735/pexels-photo-2770735.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "gym",
     tags: ["shorts", "casual", "top-selling"],
@@ -176,7 +183,8 @@ const CORE_PRODUCTS: Product[] = [
       "An expertly faded finish on our signature skinny jean cut. Distressed at the knees for an effortless look.",
     price: 210,
     images: [
-      "https://images.unsplash.com/photo-1555689502-c4b22d76c56f?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["jeans", "denim", "top-selling"],
@@ -201,9 +209,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 260,
     originalPrice: 300,
     images: [
-      "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=600&h=600&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600&h=600&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["t-shirt", "graphic", "featured"],
@@ -228,7 +235,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 212,
     originalPrice: 242,
     images: [
-      "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?w=600&h=600&fit=crop&auto=format",
+      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "formal",
     tags: ["polo", "formal", "top-selling"],
@@ -250,7 +258,8 @@ const CORE_PRODUCTS: Product[] = [
       "A vivid gradient print on premium cotton jersey. Eye-catching and comfortable for everyday wear.",
     price: 145,
     images: [
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400&h=400&fit=crop&auto=format",
+      "https://images.pexels.com/photos/2228719/pexels-photo-2228719.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2228719/pexels-photo-2228719.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     tags: ["t-shirt", "graphic", "casual"],
@@ -268,7 +277,8 @@ const CORE_PRODUCTS: Product[] = [
       "Classic polo with elegant tipping details. A versatile piece that transitions seamlessly from casual to smart-casual.",
     price: 180,
     images: [
-      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop&auto=format",
+      "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "formal",
     tags: ["polo", "formal", "classic"],

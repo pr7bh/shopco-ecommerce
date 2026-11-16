@@ -17,8 +17,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1548036161-c5ec5e72a0e3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1548036161-c5ec5e72a0e3?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["leather", "tote", "bag", "minimal"],
     rating: 4.6,
@@ -45,8 +45,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/1152079/pexels-photo-1152079.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1152079/pexels-photo-1152079.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["canvas", "shopper", "bag", "casual"],
     rating: 4.3,
@@ -74,8 +74,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Chocolate", hex: "#4a2c1a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["leather", "crossbody", "bag"],
     rating: 4.5,
@@ -102,8 +102,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1548036161-c5ec5e72a0e3?auto=format&fit=crop&w=800&q=80&sat=-15",
-      "https://images.unsplash.com/photo-1548036161-c5ec5e72a0e3?auto=format&fit=crop&w=800&q=80&crop=faces",
+      "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["structured", "top-handle", "bag", "premium"],
     rating: 4.7,
@@ -131,8 +131,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80&sat=-20",
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/1152080/pexels-photo-1152080.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1152080/pexels-photo-1152080.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["nylon", "backpack", "bag", "functional"],
     rating: 4.2,
@@ -159,8 +159,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1546038483-af29f5c5b39e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1546038483-af29f5c5b39e?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["cap", "baseball", "hat", "casual"],
     rating: 4.4,
@@ -188,8 +188,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1546038483-af29f5c5b39e?auto=format&fit=crop&w=800&q=80&sat=-20",
-      "https://images.unsplash.com/photo-1546038483-af29f5c5b39e?auto=format&fit=crop&w=800&q=80&crop=faces",
+      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["beanie", "wool", "hat", "winter"],
     rating: 4.5,
@@ -216,8 +216,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1546038483-af29f5c5b39e?auto=format&fit=crop&w=800&q=80&bri=5",
-      "https://images.unsplash.com/photo-1546038483-af29f5c5b39e?auto=format&fit=crop&w=800&q=80&sat=-10",
+      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["bucket hat", "hat", "casual", "summer"],
     rating: 4.1,
@@ -243,8 +243,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Tortoise", hex: "#6b4423" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1511499767150-a4e7d7b7f4a3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1511499767150-a4e7d7b7f4a3?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/1304647/pexels-photo-1304647.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1304647/pexels-photo-1304647.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["sunglasses", "eyewear", "wrap", "statement"],
     rating: 4.3,
@@ -271,8 +271,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Silver", hex: "#c0c0c0" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1511499767150-a4e7d7b7f4a3?auto=format&fit=crop&w=800&q=80&sat=-10",
-      "https://images.unsplash.com/photo-1511499767150-a4e7d7b7f4a3?auto=format&fit=crop&w=800&q=80&crop=faces",
+      "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["sunglasses", "aviators", "eyewear", "classic"],
     rating: 4.6,
@@ -298,8 +298,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Tortoise", hex: "#6b4423" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1511499767150-a4e7d7b7f4a3?auto=format&fit=crop&w=800&q=80&bri=-5",
-      "https://images.unsplash.com/photo-1511499767150-a4e7d7b7f4a3?auto=format&fit=crop&w=800&q=80&crop=entropy&sat=-5",
+      "https://images.pexels.com/photos/1819479/pexels-photo-1819479.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1819479/pexels-photo-1819479.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["sunglasses", "square", "eyewear", "minimal"],
     rating: 4.2,
@@ -325,8 +325,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Camel", hex: "#c19a6b" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80&sat=-15",
-      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["belt", "leather", "accessory", "minimal"],
     rating: 4.5,
@@ -354,8 +354,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Chocolate", hex: "#4a2c1a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1548036161-c5ec5e72a0e3?auto=format&fit=crop&w=800&q=80&bri=-5",
-      "https://images.unsplash.com/photo-1548036161-c5ec5e72a0e3?auto=format&fit=crop&w=800&q=80&sat=-10",
+      "https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["wallet", "leather", "card holder", "minimal"],
     rating: 4.4,
@@ -382,8 +382,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80&sat=-10",
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80&crop=entropy",
+      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["scarf", "silk", "accessory", "minimal"],
     rating: 4.3,
