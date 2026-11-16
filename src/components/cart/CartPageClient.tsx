@@ -14,16 +14,15 @@ export function CartPageClient() {
     updateQuantity,
     subtotal,
     shipping,
+    total,
     promoCode,
-    promoDiscount,
+    liveDiscount,
     applyPromo,
     removePromo,
   } = useCartStore();
 
   const [promoInput, setPromoInput] = useState("");
   const [promoError, setPromoError] = useState("");
-
-  const total = subtotal - promoDiscount + shipping;
   const freeShippingThreshold = 200;
   const freeShippingProgress = Math.min((subtotal / freeShippingThreshold) * 100, 100);
   const remaining = freeShippingThreshold - subtotal;
@@ -235,12 +234,12 @@ export function CartPageClient() {
                 <span className="font-medium">{formatPrice(subtotal)}</span>
               </div>
 
-              {promoDiscount > 0 && (
+              {liveDiscount > 0 && (
                 <div className="flex justify-between text-[#292929]">
                   <span className="flex items-center gap-1 text-[#292929]">
                     Discount ({promoCode})
                   </span>
-                  <span className="font-medium">−{formatPrice(promoDiscount)}</span>
+                  <span className="font-medium">−{formatPrice(liveDiscount)}</span>
                 </div>
               )}
 
@@ -258,7 +257,7 @@ export function CartPageClient() {
             {promoCode ? (
               <div className="flex items-center justify-between border border-[#EEEEEC] bg-white px-4 py-3">
                 <span className="eyebrow text-[#292929] text-[9px]">
-                  {promoCode} — saving {formatPrice(promoDiscount)}
+                  {promoCode} — saving {formatPrice(liveDiscount)}
                 </span>
                 <button
                   onClick={removePromo}

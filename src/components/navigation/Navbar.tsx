@@ -57,7 +57,7 @@ export function Navbar() {
         )}
       >
         <div className="shopco-container">
-          <div className="flex h-[68px] items-center">
+          <div className="relative flex h-[68px] items-center">
 
             {/* LEFT — primary nav links */}
             <nav className="hidden md:flex items-center gap-6 flex-1">
@@ -94,16 +94,22 @@ export function Navbar() {
               )}
             </nav>
 
-            {/* CENTER — logo */}
-            <div className="flex-1 md:flex-none flex justify-start md:justify-center">
-              <Link
-                href="/"
-                className="font-black text-lg tracking-[0.15em] uppercase whitespace-nowrap"
-                style={{ fontFamily: "var(--font-hero)" }}
-              >
-                SHOP.CO
-              </Link>
-            </div>
+            {/* CENTER — logo (absolutely centered on desktop, left-aligned on mobile) */}
+            <Link
+              href="/"
+              className="hidden md:block absolute left-1/2 -translate-x-1/2 font-black text-lg tracking-[0.15em] uppercase whitespace-nowrap"
+              style={{ fontFamily: "var(--font-hero)" }}
+            >
+              SHOP.CO
+            </Link>
+            {/* Mobile logo in normal flow */}
+            <Link
+              href="/"
+              className="md:hidden flex-1 font-black text-lg tracking-[0.15em] uppercase whitespace-nowrap"
+              style={{ fontFamily: "var(--font-hero)" }}
+            >
+              SHOP.CO
+            </Link>
 
             {/* RIGHT — icon actions */}
             <div className="flex items-center gap-4 flex-1 justify-end">

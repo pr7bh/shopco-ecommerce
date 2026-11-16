@@ -29,6 +29,7 @@ interface CartState {
   get itemCount(): number;
   get subtotal(): number;
   get shipping(): number;
+  get liveDiscount(): number;
   get total(): number;
 }
 
@@ -120,9 +121,18 @@ export const useCartStore = create<CartState>()(
       get shipping() {
         return get().subtotal >= 200 ? 0 : 15;
       },
+      get liveDiscount() {
+        const s = get();
+        if (!s.promoCode) return 0;
+        const promo = PROMO_CODES[s.promoCode];
+        if (!promo) return 0;
+        return promo.type === "percent"
+          ? Math.round((s.subtotal * promo.value) / 100)
+          : promo.value;
+      },
       get total() {
         const s = get();
-        return s.subtotal - s.promoDiscount + s.shipping;
+        return s.subtotal - s.liveDiscount + s.shipping;
       },
     }),
     { name: "shopco-cart" }
