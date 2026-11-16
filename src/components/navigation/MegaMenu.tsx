@@ -6,37 +6,47 @@ interface MegaMenuProps {
   onClose: () => void;
 }
 
-const CLOTHING_LINKS = [
-  { label: "T-shirts", href: "/shop?category=casual" },
-  { label: "Jeans", href: "/shop?category=casual" },
-  { label: "Shirts", href: "/shop?category=formal" },
-  { label: "Shorts", href: "/shop?category=casual" },
-  { label: "Hoodies", href: "/shop?category=casual" },
+const WOMEN_CLOTHING = [
+  { label: "T-Shirts", href: "/shop?gender=women&subcategory=basic-tshirts" },
+  { label: "Dresses", href: "/shop?gender=women&subcategory=dresses" },
+  { label: "Jeans & Denim", href: "/shop?gender=women&subcategory=jeans" },
+  { label: "Hoodies", href: "/shop?gender=women&subcategory=hoodies-sweatshirts" },
+  { label: "Knitwear", href: "/shop?gender=women&subcategory=knitwear" },
+  { label: "Outerwear", href: "/shop?gender=women&subcategory=outerwear" },
+];
+
+const MEN_CLOTHING = [
+  { label: "T-Shirts", href: "/shop?gender=men&subcategory=basic-tshirts" },
+  { label: "Shirts", href: "/shop?gender=men&subcategory=shirts" },
+  { label: "Jeans & Denim", href: "/shop?gender=men&subcategory=jeans" },
+  { label: "Hoodies", href: "/shop?gender=men&subcategory=hoodies-sweatshirts" },
+  { label: "Outerwear", href: "/shop?gender=men&subcategory=outerwear" },
 ];
 
 const ACCESSORIES_LINKS = [
-  { label: "Belts", href: "/shop" },
-  { label: "Bags", href: "/shop" },
-  { label: "Scarves", href: "/shop" },
-  { label: "Hats", href: "/shop" },
+  { label: "All Accessories", href: "/shop?gender=unisex" },
+  { label: "Bags", href: "/shop?gender=unisex&subcategory=accessories" },
+  { label: "Hats & Caps", href: "/shop?gender=unisex&subcategory=accessories" },
+  { label: "Jewellery", href: "/shop?gender=unisex&subcategory=accessories" },
 ];
 
 const HIGHLIGHTS_LINKS = [
   { label: "New Arrivals →", href: "/shop?sort=newest" },
   { label: "Sale →", href: "/shop?category=sale" },
-  { label: "Trending →", href: "/shop" },
+  { label: "Trending →", href: "/shop?sort=rating" },
 ];
 
 const IMAGES: Record<string, string> = {
   WOMEN:
-    "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=400&fit=crop&auto=format",
-  MEN: "https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=600&h=400&fit=crop&auto=format",
+    "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+  MEN: "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
 };
 
 export function MegaMenu({ category, onClose }: MegaMenuProps) {
   const imgSrc =
     IMAGES[category] ??
-    "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=400&fit=crop&auto=format";
+    "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop";
+  const clothingLinks = category === "MEN" ? MEN_CLOTHING : WOMEN_CLOTHING;
 
   return (
     <div
@@ -50,7 +60,7 @@ export function MegaMenu({ category, onClose }: MegaMenuProps) {
             <div>
               <p className="eyebrow text-gray-400 mb-4">Clothing</p>
               <ul className="space-y-2.5">
-                {CLOTHING_LINKS.map((l) => (
+                {clothingLinks.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}

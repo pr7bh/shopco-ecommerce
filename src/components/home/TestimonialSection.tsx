@@ -79,6 +79,11 @@ export function TestimonialSection() {
           )}
         </div>
 
+        {/* Demo disclaimer */}
+        <p className="text-xs text-gray-400 mb-6 -mt-4">
+          Sample reviews for demonstration purposes only.
+        </p>
+
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {visible.map((review) => (

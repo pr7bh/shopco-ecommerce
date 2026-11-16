@@ -9,6 +9,7 @@ const PAGE_SIZE = 48;
 interface ShopPageProps {
   searchParams: Promise<{
     category?: string;
+    subcategory?: string;
     minPrice?: string;
     maxPrice?: string;
     colors?: string;
@@ -32,6 +33,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
   const filtered = filterAndSort(ALL_PRODUCTS, {
     category: sp.category,
+    subcategory: sp.subcategory,
     minPrice: sp.minPrice ? Number(sp.minPrice) : undefined,
     maxPrice: sp.maxPrice ? Number(sp.maxPrice) : undefined,
     colors: sp.colors?.split(",").filter(Boolean),
@@ -46,7 +48,9 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const totalPages = Math.ceil(total / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  const title = sp.gender
+  const title = sp.subcategory
+    ? sp.subcategory.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+    : sp.gender
     ? sp.gender.charAt(0).toUpperCase() + sp.gender.slice(1)
     : sp.category
     ? sp.category.charAt(0).toUpperCase() + sp.category.slice(1).replace(/-/g, " ")
@@ -55,6 +59,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   function genderHref(g?: string) {
     const params = new URLSearchParams();
     if (sp.category) params.set("category", sp.category);
+    if (sp.subcategory) params.set("subcategory", sp.subcategory);
     if (sp.sort) params.set("sort", sp.sort);
     if (sp.q) params.set("q", sp.q);
     if (g) params.set("gender", g);

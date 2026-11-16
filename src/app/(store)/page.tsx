@@ -6,8 +6,7 @@ import { CampaignSection } from "@/components/home/CampaignSection";
 import { SeasonalBanner } from "@/components/home/SeasonalBanner";
 import { BrandPhilosophy } from "@/components/home/BrandPhilosophy";
 import { TestimonialSection } from "@/components/home/TestimonialSection";
-import { NewsletterSection } from "@/components/home/NewsletterSection";
-import { NEW_ARRIVALS, TOP_SELLING } from "@/lib/mock-data";
+import { ALL_PRODUCTS } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "SHOP.CO — Find Clothes That Match Your Style",
@@ -16,6 +15,12 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const newArrivals = ALL_PRODUCTS.filter((p) => p.isNew).slice(0, 8);
+  const trending = ALL_PRODUCTS.filter(
+    (p) => p.isFeatured || p.rating >= 4.5
+  ).slice(0, 8);
+  const bestsellers = ALL_PRODUCTS.filter((p) => p.isBestseller).slice(0, 8);
+
   return (
     <>
       <HeroSection />
@@ -23,20 +28,27 @@ export default function HomePage() {
       <ProductSection
         title="New Arrivals"
         subtitle="JUST DROPPED"
-        products={NEW_ARRIVALS}
-        viewAllHref="/new-arrivals"
+        products={newArrivals}
+        viewAllHref="/shop?sort=newest"
       />
       <CampaignSection />
       <ProductSection
-        title="Top Selling"
-        subtitle="TRENDING NOW"
-        products={TOP_SELLING}
-        viewAllHref="/shop?sort=top-selling"
+        title="Trending Now"
+        subtitle="MOST LOVED"
+        products={trending}
+        viewAllHref="/shop?sort=rating"
       />
       <SeasonalBanner />
-      <BrandPhilosophy />
+      {bestsellers.length > 0 && (
+        <ProductSection
+          title="Bestsellers"
+          subtitle="FAN FAVOURITES"
+          products={bestsellers}
+          viewAllHref="/shop"
+        />
+      )}
       <TestimonialSection />
-      <NewsletterSection />
+      <BrandPhilosophy />
     </>
   );
 }

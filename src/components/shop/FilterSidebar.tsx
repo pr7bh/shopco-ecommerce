@@ -5,14 +5,18 @@ import { useCallback, useState, useTransition } from "react";
 import { SlidersHorizontal, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const CATEGORIES = [
-  { label: "All", value: "" },
-  { label: "Casual", value: "casual" },
-  { label: "Formal", value: "formal" },
-  { label: "Party", value: "party" },
-  { label: "Gym", value: "gym" },
-  { label: "New Arrivals", value: "new-arrivals" },
-  { label: "Sale", value: "sale" },
+const SUBCATEGORIES = [
+  { label: "All Categories", value: "" },
+  { label: "T-Shirts", value: "basic-tshirts" },
+  { label: "Shirts & Blouses", value: "shirts-blouses" },
+  { label: "Shirts", value: "shirts" },
+  { label: "Dresses", value: "dresses" },
+  { label: "Jeans & Denim", value: "jeans" },
+  { label: "Hoodies & Sweatshirts", value: "hoodies-sweatshirts" },
+  { label: "Knitwear", value: "knitwear" },
+  { label: "Outerwear", value: "outerwear" },
+  { label: "Shorts", value: "shorts" },
+  { label: "Accessories", value: "accessories" },
 ];
 
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL"] as const;
@@ -35,7 +39,7 @@ export function FilterSidebar() {
   const sp = useSearchParams();
   const [, startTransition] = useTransition();
 
-  const currentCategory = sp.get("category") ?? "";
+  const currentSubcategory = sp.get("subcategory") ?? "";
   const currentSizes = sp.get("sizes")?.split(",").filter(Boolean) ?? [];
   const currentColors = sp.get("colors")?.split(",").filter(Boolean) ?? [];
   const currentMin = sp.get("minPrice") ? Number(sp.get("minPrice")) : 0;
@@ -94,7 +98,7 @@ export function FilterSidebar() {
   }
 
   const hasFilters =
-    currentCategory ||
+    currentSubcategory ||
     currentSizes.length > 0 ||
     currentColors.length > 0 ||
     currentMin > 0 ||
@@ -124,17 +128,17 @@ export function FilterSidebar() {
         </div>
       </div>
 
-      {/* Category */}
+      {/* Subcategory */}
       <div>
         <p className="eyebrow text-[#B8A99A] mb-4">Category</p>
         <ul className="space-y-0.5">
-          {CATEGORIES.map((cat) => (
+          {SUBCATEGORIES.map((cat) => (
             <li key={cat.value}>
               <button
-                onClick={() => push(buildParams({ category: cat.value || null }))}
+                onClick={() => push(buildParams({ subcategory: cat.value || null }))}
                 className={cn(
                   "w-full text-left text-sm py-2 border-b border-transparent transition-colors",
-                  currentCategory === cat.value
+                  currentSubcategory === cat.value
                     ? "text-black font-semibold border-b-black"
                     : "text-[#292929] hover:text-black"
                 )}
@@ -247,7 +251,7 @@ export function FilterSidebar() {
         Filters
         {hasFilters && (
           <span className="ml-1 w-5 h-5 bg-black text-white text-[9px] flex items-center justify-center">
-            {[currentCategory, ...currentSizes, ...currentColors].filter(Boolean).length}
+            {[currentSubcategory, ...currentSizes, ...currentColors].filter(Boolean).length}
           </span>
         )}
       </button>

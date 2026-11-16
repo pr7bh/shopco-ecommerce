@@ -11,8 +11,8 @@ import { SearchOverlay } from "./SearchOverlay";
 import { MobileMenu } from "./MobileMenu";
 
 const LEFT_LINKS = [
-  { label: "WOMEN", href: "/shop?category=casual", hasMega: true },
-  { label: "MEN", href: "/shop?category=formal", hasMega: true },
+  { label: "WOMEN", href: "/shop?gender=women", hasMega: true },
+  { label: "MEN", href: "/shop?gender=men", hasMega: true },
   { label: "KIDS", href: "/shop", hasMega: false },
   { label: "SALE", href: "/shop?category=sale", hasMega: false },
 ];
@@ -118,7 +118,7 @@ export function Navbar() {
 
               {/* Account */}
               <Link
-                href="/account"
+                href="/shop"
                 aria-label="Account"
                 className="hidden md:flex items-center hover:opacity-60 transition-opacity"
               >

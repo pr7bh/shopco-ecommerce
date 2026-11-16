@@ -18,6 +18,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "basic-tshirts",
+    gender: "men",
     tags: ["t-shirt", "casual", "new"],
     rating: 4.5,
     reviewCount: 145,
@@ -42,6 +44,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "jeans",
+    gender: "women",
     tags: ["jeans", "denim", "new"],
     rating: 4.5,
     reviewCount: 87,
@@ -66,6 +70,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "shirts",
+    gender: "men",
     tags: ["shirt", "checkered", "new"],
     rating: 4.5,
     reviewCount: 212,
@@ -90,6 +96,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "basic-tshirts",
+    gender: "men",
     tags: ["t-shirt", "striped", "new"],
     rating: 4.5,
     reviewCount: 65,
@@ -117,6 +125,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "shirts",
+    gender: "men",
     tags: ["shirt", "striped", "top-selling"],
     rating: 5.0,
     reviewCount: 198,
@@ -141,6 +151,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "basic-tshirts",
+    gender: "men",
     tags: ["t-shirt", "graphic", "top-selling"],
     rating: 4.0,
     reviewCount: 56,
@@ -164,6 +176,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/2770735/pexels-photo-2770735.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "gym",
+    subcategory: "shorts",
+    gender: "men",
     tags: ["shorts", "casual", "top-selling"],
     rating: 3.5,
     reviewCount: 32,
@@ -187,6 +201,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "jeans",
+    gender: "men",
     tags: ["jeans", "denim", "top-selling"],
     rating: 4.5,
     reviewCount: 143,
@@ -213,6 +229,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "basic-tshirts",
+    gender: "women",
     tags: ["t-shirt", "graphic", "featured"],
     rating: 4.5,
     reviewCount: 451,
@@ -239,6 +257,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "formal",
+    subcategory: "shirts",
+    gender: "men",
     tags: ["polo", "formal", "top-selling"],
     rating: 4.0,
     reviewCount: 180,
@@ -262,6 +282,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/2228719/pexels-photo-2228719.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
+    subcategory: "basic-tshirts",
+    gender: "men",
     tags: ["t-shirt", "graphic", "casual"],
     rating: 3.5,
     reviewCount: 92,
@@ -281,6 +303,8 @@ const CORE_PRODUCTS: Product[] = [
       "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "formal",
+    subcategory: "shirts",
+    gender: "women",
     tags: ["polo", "formal", "classic"],
     rating: 4.5,
     reviewCount: 134,
