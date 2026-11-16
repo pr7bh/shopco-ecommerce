@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
+/* ─── SHOP.CO Design Tokens ───────────────────────────────────── */
 :root {
+  /* Core palette */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --muted: #f0f0f0;
+  --muted-foreground: #666666;
+  --border: #e8e8e8;
+  --input: #f0f0f0;
+  --ring: #000000;
+
+  /* shadcn semantic tokens */
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #000000;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --accent: #f0f0f0;
+  --accent-foreground: #000000;
+
+  /* SHOP.CO brand */
+  --star: #ffc633;
+  --hero-bg: #f0f0f0;
+  --black-bar: #000000;
+
+  --radius: 0.5rem;
 }
 
+/* ─── Tailwind v4 theme mapping ───────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-star: var(--star);
+
+  /* SHOP.CO gray scale */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f0f0f0;
+  --color-gray-200: #e8e8e8;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+
+  /* Fonts — set by next/font vars in layout.tsx */
+  --font-hero: var(--font-unbounded), 'Unbounded', system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  /* SHOP.CO radius tokens */
+  --radius-card: 12px;
+  --radius-card-lg: 20px;
+  --radius-pill: 62px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base styles ─────────────────────────────────────────────── */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── SHOP.CO component helpers ──────────────────────────────── */
+@layer components {
+  .shopco-container {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2rem);
+  }
+
+  .shopco-section {
+    padding-block: clamp(2.5rem, 6vw, 5rem);
+  }
+
+  /* Infinite marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .marquee-track {
+    animation: marquee 25s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* 3D card tilt (CSS only, no WebGL) */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .card-3d:hover {
+    transform: perspective(1000px) rotateY(-3deg) rotateX(2deg) translateZ(8px);
+  }
+
+  /* ── Hero Aurora (React Bits inspired) ──────────────────────── */
+  @keyframes hero-aurora-warm {
+    0%, 100% { transform: translate(0%, 0%) scale(1); }
+    33%       { transform: translate(4%, -6%) scale(1.06); }
+    66%       { transform: translate(-3%, 4%) scale(0.96); }
+  }
+
+  @keyframes hero-aurora-cool {
+    0%, 100% { transform: translate(0%, 0%) scale(1); }
+    33%       { transform: translate(-5%, 5%) scale(0.95); }
+    66%       { transform: translate(4%, -4%) scale(1.04); }
+  }
+
+  .hero-aurora {
+    isolation: isolate;
+  }
+
+  .hero-aurora::before,
+  .hero-aurora::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Warm blob — sits behind the image column */
+  .hero-aurora::before {
+    background: radial-gradient(ellipse 72% 65% at 78% 38%, rgba(192, 178, 158, 0.32) 0%, transparent 68%);
+    animation: hero-aurora-warm 15s ease-in-out infinite;
+  }
+
+  /* Cool blob — sits behind the left text column */
+  .hero-aurora::after {
+    background: radial-gradient(ellipse 55% 48% at 22% 72%, rgba(162, 178, 205, 0.22) 0%, transparent 62%);
+    animation: hero-aurora-cool 20s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-aurora::before,
+    .hero-aurora::after {
+      animation: none;
+    }
+  }
 }
