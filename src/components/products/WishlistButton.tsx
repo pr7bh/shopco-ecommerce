@@ -3,6 +3,7 @@
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWishlistStore } from "@/features/wishlist/store";
+import { animate } from "animejs";
 import type { Product } from "@/types";
 
 interface WishlistButtonProps {
@@ -21,6 +22,12 @@ export function WishlistButton({ product, className, size = 16 }: WishlistButton
         e.preventDefault();
         e.stopPropagation();
         toggleItem(product);
+        const btn = e.currentTarget as HTMLElement;
+        animate(btn, {
+          scale: [1, 1.4, 1],
+          duration: 400,
+          easing: "easeOutBack",
+        });
       }}
       aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
       className={cn(

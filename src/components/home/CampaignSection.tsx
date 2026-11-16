@@ -1,13 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import type { RefObject } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export function CampaignSection() {
+  const ref = useScrollReveal({ selector: ".campaign-col", staggerDelay: 120 });
   return (
-    <section className="editorial-section bg-[#F7F6F3]">
+    <section ref={ref as RefObject<HTMLElement>} className="editorial-section bg-[#F7F6F3]">
       <div className="shopco-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Image */}
-          <div className="relative aspect-[4/5] img-zoom rounded-[var(--radius-card)] overflow-hidden">
+          <div className="campaign-col relative aspect-[4/5] img-zoom rounded-[var(--radius-card)] overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&h=1000&fit=crop&auto=format"
               alt="The Collection Campaign"
@@ -18,7 +23,7 @@ export function CampaignSection() {
           </div>
 
           {/* Text */}
-          <div className="lg:pl-8">
+          <div className="campaign-col lg:pl-8">
             <div className="eyebrow text-[#B8A99A] mb-6">THE COLLECTION</div>
             <h2
               className="campaign-heading mb-6"

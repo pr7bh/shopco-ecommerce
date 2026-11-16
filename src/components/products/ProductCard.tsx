@@ -77,7 +77,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
             )}
           >
             <ShoppingBag size={13} strokeWidth={1.5} />
-            {added ? "Added" : "Quick Add"}
+            {added ? "✓ Added" : "ADD TO BAG"}
           </button>
         </div>
       </div>

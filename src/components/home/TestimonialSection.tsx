@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import type { RefObject } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { StarRating } from "@/components/products/StarRating";
 import { TESTIMONIALS } from "@/lib/mock-data";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 function VerifiedIcon() {
   return (
@@ -29,12 +31,13 @@ function VerifiedIcon() {
 
 export function TestimonialSection() {
   const [page, setPage] = useState(0);
+  const ref = useScrollReveal({ selector: ".testimonial-card", staggerDelay: 100 });
   const perPage = 3;
   const total = Math.ceil(TESTIMONIALS.length / perPage);
   const visible = TESTIMONIALS.slice(page * perPage, page * perPage + perPage);
 
   return (
-    <section className="editorial-section bg-[#F7F6F3]">
+    <section ref={ref as RefObject<HTMLElement>} className="editorial-section bg-[#F7F6F3]">
       <div className="shopco-container">
         {/* Header */}
         <div className="flex items-end justify-between mb-10">
@@ -81,7 +84,7 @@ export function TestimonialSection() {
           {visible.map((review) => (
             <div
               key={review.id}
-              className="bg-white border border-[#EEEEEC] rounded-[var(--radius-card)] p-7 flex flex-col gap-4"
+              className="testimonial-card bg-white border border-[#EEEEEC] rounded-[var(--radius-card)] p-7 flex flex-col gap-4"
             >
               {/* Large opening quote */}
               <div

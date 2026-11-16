@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import type { RefObject } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export function BrandPhilosophy() {
+  const ref = useScrollReveal({ delay: 100 });
   return (
-    <section className="bg-black text-white py-24 md:py-36 overflow-hidden">
+    <section ref={ref as RefObject<HTMLElement>} className="bg-black text-white py-24 md:py-36 overflow-hidden">
       <div className="shopco-container">
         <div className="max-w-5xl">
           <div className="eyebrow text-white/40 mb-8">OUR PHILOSOPHY</div>

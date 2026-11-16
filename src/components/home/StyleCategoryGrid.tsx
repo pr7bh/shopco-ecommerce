@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import type { RefObject } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export function StyleCategoryGrid() {
+  const ref = useScrollReveal();
   return (
-    <section className="editorial-section bg-[#F7F6F3]">
+    <section ref={ref as RefObject<HTMLElement>} className="editorial-section bg-[#F7F6F3]">
       <div className="shopco-container">
         <div className="eyebrow text-gray-500 mb-8">EXPLORE CATEGORIES</div>
 
