@@ -9,9 +9,9 @@ import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { ALL_PRODUCTS } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "SHOP.CO — Find Clothes That Match Your Style",
+  title: "New Season Collection",
   description:
-    "Browse our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
+    "Shop the new season collection at SHOP.CO. Premium fashion for women, men and accessories — refined pieces for the modern wardrobe.",
 };
 
 export default function HomePage() {

@@ -24,8 +24,8 @@ interface ShopPageProps {
 export const instant = false;
 
 export const metadata = {
-  title: "Shop | SHOP.CO",
-  description: "Browse our full collection of premium fashion.",
+  title: "Shop All",
+  description: "Browse our full collection of premium fashion for women, men and accessories.",
 };
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {

@@ -17,6 +17,12 @@ export function useScrollReveal(options?: {
       ? Array.from(el.querySelectorAll<HTMLElement>(options.selector))
       : [el];
 
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      targets.forEach((t) => { t.style.opacity = "1"; t.style.transform = "none"; });
+      return;
+    }
+
     targets.forEach((t) => {
       t.style.opacity = "0";
       t.style.transform = "translateY(28px)";

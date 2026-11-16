@@ -25,19 +25,20 @@ const unbounded = Unbounded({
 
 export const metadata: Metadata = {
   title: {
-    default: "SHOP.CO — Find Clothes That Match Your Style",
+    default: "SHOP.CO — Premium Fashion",
     template: "%s | SHOP.CO",
   },
   description:
-    "Browse our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
-  keywords: ["fashion", "clothing", "style", "apparel", "shop"],
+    "Discover premium fashion for women, men and accessories. Shop the latest collections at SHOP.CO — refined pieces for the modern wardrobe.",
+  keywords: ["fashion", "clothing", "women", "men", "accessories", "premium", "style", "apparel"],
   openGraph: {
     type: "website",
     siteName: "SHOP.CO",
-    title: "SHOP.CO — Find Clothes That Match Your Style",
+    title: "SHOP.CO — Premium Fashion",
     description:
-      "Browse our diverse range of meticulously crafted garments, designed to bring out your individuality.",
+      "Discover premium fashion for women, men and accessories. Shop the latest collections at SHOP.CO.",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
@@ -50,7 +51,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${unbounded.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+      <body className="min-h-full flex flex-col antialiased">
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
