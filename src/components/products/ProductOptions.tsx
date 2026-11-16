@@ -1,28 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { ShoppingCart, Minus, Plus } from "lucide-react";
+import { ShoppingBag, Minus, Plus, Truck, RotateCcw, ChevronDown } from "lucide-react";
 import { WishlistButton } from "@/components/products/WishlistButton";
-import { cn } from "@/lib/utils";
-import { formatPrice, calculateDiscount } from "@/lib/utils";
-import { useCartStore } from "@/features/cart/store";
 import { StarRating } from "@/components/products/StarRating";
+import { cn, formatPrice, calculateDiscount } from "@/lib/utils";
+import { useCartStore } from "@/features/cart/store";
 import type { Product, Size, Color } from "@/types";
 
 interface ProductOptionsProps {
   product: Product;
 }
 
+const SIZE_LABELS: Record<string, string> = {
+  XS: "X-Small",
+  S: "Small",
+  M: "Medium",
+  L: "Large",
+  XL: "X-Large",
+  XXL: "2X-Large",
+};
+
 export function ProductOptions({ product }: ProductOptionsProps) {
   const { addItem } = useCartStore();
-  const [selectedSize, setSelectedSize] = useState<Size | undefined>(
-    product.sizes?.[0]
-  );
-  const [selectedColor, setSelectedColor] = useState<Color | undefined>(
-    product.colors?.[0]
-  );
+  const [selectedSize, setSelectedSize] = useState<Size | undefined>(product.sizes?.[0]);
+  const [selectedColor, setSelectedColor] = useState<Color | undefined>(product.colors?.[0]);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+  const [descOpen, setDescOpen] = useState(false);
 
   const discount = product.originalPrice
     ? calculateDiscount(product.originalPrice, product.price)
@@ -35,8 +40,19 @@ export function ProductOptions({ product }: ProductOptionsProps) {
   }
 
   return (
-    <div className="space-y-5">
-      {/* Price row */}
+    <div className="space-y-6">
+      {/* Product name */}
+      <h1
+        className="text-2xl md:text-3xl font-black uppercase leading-tight tracking-tight"
+        style={{ fontFamily: "var(--font-hero)" }}
+      >
+        {product.name}
+      </h1>
+
+      {/* Rating */}
+      <StarRating rating={product.rating} reviewCount={product.reviewCount} size={14} showLabel />
+
+      {/* Price */}
       <div className="flex items-baseline gap-3 flex-wrap">
         <span
           className="text-3xl font-bold"
@@ -45,35 +61,24 @@ export function ProductOptions({ product }: ProductOptionsProps) {
           {formatPrice(product.price)}
         </span>
         {product.originalPrice && (
-          <span className="text-lg text-gray-400 line-through">
+          <span className="text-lg text-[#B8A99A] line-through">
             {formatPrice(product.originalPrice)}
           </span>
         )}
         {discount && (
-          <span className="text-sm font-semibold text-red-500 bg-red-50 px-2 py-0.5 rounded-full">
+          <span className="eyebrow bg-black text-white px-2.5 py-1 text-[9px]">
             -{discount}%
           </span>
         )}
       </div>
 
-      {/* Rating */}
-      <StarRating
-        rating={product.rating}
-        reviewCount={product.reviewCount}
-        size={14}
-        showLabel
-      />
-
-      {/* Description */}
-      <p className="text-sm text-gray-600 leading-relaxed">{product.description}</p>
-
-      <hr className="border-gray-100" />
+      <div className="border-t border-[#EEEEEC]" />
 
       {/* Colors */}
       {product.colors && product.colors.length > 0 && (
         <div>
-          <p className="text-sm font-medium mb-3">
-            Select Colors
+          <p className="eyebrow text-[#292929] mb-3">
+            Color — <span className="normal-case font-normal text-xs tracking-normal">{selectedColor?.name}</span>
           </p>
           <div className="flex gap-2.5 flex-wrap">
             {product.colors.map((color) => (
@@ -84,8 +89,8 @@ export function ProductOptions({ product }: ProductOptionsProps) {
                 className={cn(
                   "w-9 h-9 rounded-full border-2 transition-all",
                   selectedColor?.name === color.name
-                    ? "border-black scale-110 shadow-md"
-                    : "border-transparent hover:border-gray-400"
+                    ? "border-black scale-110"
+                    : "border-transparent hover:border-[#B8A99A]"
                 )}
                 style={{ backgroundColor: color.hex }}
                 aria-label={color.name}
@@ -99,8 +104,8 @@ export function ProductOptions({ product }: ProductOptionsProps) {
       {/* Sizes */}
       {product.sizes && product.sizes.length > 0 && (
         <div>
-          <p className="text-sm font-medium mb-3">
-            Choose Size
+          <p className="eyebrow text-[#292929] mb-3">
+            Size — <span className="normal-case font-normal text-xs tracking-normal">{selectedSize ? SIZE_LABELS[selectedSize] ?? selectedSize : ""}</span>
           </p>
           <div className="flex gap-2 flex-wrap">
             {product.sizes.map((size) => (
@@ -108,10 +113,10 @@ export function ProductOptions({ product }: ProductOptionsProps) {
                 key={size}
                 onClick={() => setSelectedSize(size)}
                 className={cn(
-                  "px-4 py-2 text-sm rounded-full border transition-colors",
+                  "px-4 py-2 text-xs font-semibold tracking-wide border transition-all",
                   selectedSize === size
                     ? "bg-black text-white border-black"
-                    : "border-gray-200 text-gray-700 hover:border-black"
+                    : "border-[#EEEEEC] text-[#292929] hover:border-black"
                 )}
               >
                 {size}
@@ -121,58 +126,94 @@ export function ProductOptions({ product }: ProductOptionsProps) {
         </div>
       )}
 
-      <hr className="border-gray-100" />
+      <div className="border-t border-[#EEEEEC]" />
 
-      {/* Qty + Add to cart */}
-      <div className="flex items-center gap-3">
-        {/* Quantity */}
-        <div className="flex items-center gap-0 border border-gray-200 rounded-full overflow-hidden">
+      {/* Qty + Add */}
+      <div className="flex items-stretch gap-3">
+        <div className="flex items-center border border-[#EEEEEC]">
           <button
             onClick={() => setQty((q) => Math.max(1, q - 1))}
-            className="px-3 py-2.5 hover:bg-gray-100 transition-colors"
+            className="px-3 py-3 hover:bg-[#F7F6F3] transition-colors"
             aria-label="Decrease quantity"
           >
             <Minus size={14} />
           </button>
-          <span className="px-3 text-sm font-medium min-w-[32px] text-center">
+          <span className="px-4 text-sm font-semibold min-w-[40px] text-center">
             {qty}
           </span>
           <button
             onClick={() => setQty((q) => Math.min(product.stock, q + 1))}
-            className="px-3 py-2.5 hover:bg-gray-100 transition-colors"
+            className="px-3 py-3 hover:bg-[#F7F6F3] transition-colors"
             aria-label="Increase quantity"
           >
             <Plus size={14} />
           </button>
         </div>
 
-        {/* Add to cart */}
         <button
           onClick={handleAddToCart}
           disabled={product.stock === 0}
           className={cn(
-            "flex-1 flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold transition-all",
+            "flex-1 flex items-center justify-center gap-2 py-3 eyebrow transition-all",
             added
-              ? "bg-green-600 text-white"
-              : "bg-black text-white hover:bg-gray-900"
+              ? "bg-[#292929] text-[#B8A99A]"
+              : product.stock === 0
+              ? "bg-[#EEEEEC] text-[#B8A99A] cursor-not-allowed"
+              : "bg-black text-white hover:bg-[#292929]"
           )}
         >
-          <ShoppingCart size={16} />
-          {added ? "Added!" : "Add to Cart"}
+          <ShoppingBag size={15} strokeWidth={1.5} />
+          {added ? "Added to Bag" : product.stock === 0 ? "Out of Stock" : "Add to Bag"}
         </button>
 
-        {/* Wishlist */}
-        <WishlistButton product={product} className="w-11 h-11" />
+        <WishlistButton product={product} className="w-12 h-auto border border-[#EEEEEC] hover:border-black" />
       </div>
 
       {product.stock < 10 && product.stock > 0 && (
-        <p className="text-xs text-orange-600 font-medium">
+        <p className="eyebrow text-orange-600 text-[9px]">
           Only {product.stock} left in stock
         </p>
       )}
-      {product.stock === 0 && (
-        <p className="text-xs text-red-600 font-medium">Out of stock</p>
-      )}
+
+      {/* Delivery info */}
+      <div className="border border-[#EEEEEC] divide-y divide-[#EEEEEC]">
+        <div className="flex items-center gap-3 px-4 py-3">
+          <Truck size={16} className="shrink-0 text-[#292929]" strokeWidth={1.5} />
+          <div>
+            <p className="text-xs font-semibold text-[#292929]">Free Shipping</p>
+            <p className="text-xs text-gray-500">On orders over $200 — arrives in 3–5 days</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 px-4 py-3">
+          <RotateCcw size={16} className="shrink-0 text-[#292929]" strokeWidth={1.5} />
+          <div>
+            <p className="text-xs font-semibold text-[#292929]">Free Returns</p>
+            <p className="text-xs text-gray-500">30-day returns for unused items</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Description accordion */}
+      <div className="border-t border-[#EEEEEC]">
+        <button
+          onClick={() => setDescOpen((o) => !o)}
+          className="w-full flex items-center justify-between py-4 group"
+        >
+          <span className="eyebrow text-[#292929] group-hover:text-black transition-colors">
+            Product Description
+          </span>
+          <ChevronDown
+            size={16}
+            strokeWidth={1.5}
+            className={cn("transition-transform duration-200", descOpen && "rotate-180")}
+          />
+        </button>
+        {descOpen && (
+          <p className="text-sm text-gray-600 leading-relaxed pb-4">
+            {product.description}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

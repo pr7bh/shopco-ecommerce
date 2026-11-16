@@ -101,22 +101,22 @@ export function FilterSidebar() {
     currentMax < 500;
 
   const inner = (
-    <div className="space-y-6">
+    <div className="space-y-7">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <span className="font-bold text-base">Filters</span>
-        <div className="flex items-center gap-2">
+        <span className="eyebrow text-[#292929]">Filters</span>
+        <div className="flex items-center gap-3">
           {hasFilters && (
             <button
               onClick={clearAll}
-              className="text-xs text-gray-500 hover:text-black flex items-center gap-1"
+              className="eyebrow text-[#B8A99A] hover:text-black transition-colors flex items-center gap-1"
             >
-              <X size={12} /> Clear
+              <X size={10} /> Clear All
             </button>
           )}
           <button
             onClick={() => setOpen(false)}
-            className="lg:hidden text-gray-500 hover:text-black"
+            className="lg:hidden text-[#292929] hover:text-black"
             aria-label="Close filters"
           >
             <X size={18} />
@@ -124,23 +124,19 @@ export function FilterSidebar() {
         </div>
       </div>
 
-      {/* Dress Style / Category */}
+      {/* Category */}
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
-          Dress Style
-        </p>
-        <ul className="space-y-1">
+        <p className="eyebrow text-[#B8A99A] mb-4">Category</p>
+        <ul className="space-y-0.5">
           {CATEGORIES.map((cat) => (
             <li key={cat.value}>
               <button
-                onClick={() =>
-                  push(buildParams({ category: cat.value || null }))
-                }
+                onClick={() => push(buildParams({ category: cat.value || null }))}
                 className={cn(
-                  "w-full text-left text-sm px-3 py-1.5 rounded-lg transition-colors",
+                  "w-full text-left text-sm py-2 border-b border-transparent transition-colors",
                   currentCategory === cat.value
-                    ? "bg-black text-white font-medium"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "text-black font-semibold border-b-black"
+                    : "text-[#292929] hover:text-black"
                 )}
               >
                 {cat.label}
@@ -150,51 +146,51 @@ export function FilterSidebar() {
         </ul>
       </div>
 
+      <div className="border-t border-[#EEEEEC]" />
+
       {/* Price Range */}
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
-          Price Range
-        </p>
+        <p className="eyebrow text-[#B8A99A] mb-4">Price</p>
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <div className="flex-1">
-              <label className="text-[10px] text-gray-500 mb-1 block">Min</label>
+              <label className="text-[10px] text-[#B8A99A] mb-1 block tracking-wide">MIN ($)</label>
               <input
                 type="number"
                 min={0}
                 max={localMax - 1}
                 value={localMin}
                 onChange={(e) => setLocalMin(Number(e.target.value))}
-                className="w-full border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:border-black"
+                className="w-full border border-[#EEEEEC] px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors bg-transparent"
               />
             </div>
-            <span className="text-gray-400 mt-5">–</span>
+            <span className="text-[#B8A99A] mt-5">–</span>
             <div className="flex-1">
-              <label className="text-[10px] text-gray-500 mb-1 block">Max</label>
+              <label className="text-[10px] text-[#B8A99A] mb-1 block tracking-wide">MAX ($)</label>
               <input
                 type="number"
                 min={localMin + 1}
                 max={2000}
                 value={localMax}
                 onChange={(e) => setLocalMax(Number(e.target.value))}
-                className="w-full border border-gray-200 rounded-lg px-2.5 py-1.5 text-sm focus:outline-none focus:border-black"
+                className="w-full border border-[#EEEEEC] px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors bg-transparent"
               />
             </div>
           </div>
           <button
             onClick={applyPrice}
-            className="w-full bg-black text-white text-xs font-semibold py-2 rounded-full hover:bg-gray-900 transition-colors"
+            className="w-full bg-black text-white eyebrow py-2.5 hover:bg-[#292929] transition-colors"
           >
-            Apply Filter
+            Apply
           </button>
         </div>
       </div>
 
+      <div className="border-t border-[#EEEEEC]" />
+
       {/* Colors */}
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
-          Colors
-        </p>
+        <p className="eyebrow text-[#B8A99A] mb-4">Color</p>
         <div className="flex flex-wrap gap-2">
           {COLORS.map((c) => (
             <button
@@ -205,7 +201,7 @@ export function FilterSidebar() {
                 "w-7 h-7 rounded-full border-2 transition-all",
                 currentColors.includes(c.name)
                   ? "border-black scale-110"
-                  : "border-transparent hover:border-gray-400"
+                  : "border-transparent hover:border-[#B8A99A]"
               )}
               style={{ backgroundColor: c.hex }}
               aria-label={c.name}
@@ -215,21 +211,21 @@ export function FilterSidebar() {
         </div>
       </div>
 
+      <div className="border-t border-[#EEEEEC]" />
+
       {/* Sizes */}
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">
-          Size
-        </p>
+        <p className="eyebrow text-[#B8A99A] mb-4">Size</p>
         <div className="flex flex-wrap gap-2">
           {SIZES.map((s) => (
             <button
               key={s}
               onClick={() => toggleSize(s)}
               className={cn(
-                "px-3 py-1.5 text-xs font-medium rounded-full border transition-colors",
+                "px-3 py-1.5 text-xs font-semibold tracking-wide border transition-colors",
                 currentSizes.includes(s)
                   ? "bg-black text-white border-black"
-                  : "border-gray-300 text-gray-700 hover:border-black"
+                  : "border-[#EEEEEC] text-[#292929] hover:border-black"
               )}
             >
               {s}
@@ -245,12 +241,12 @@ export function FilterSidebar() {
       {/* Mobile toggle */}
       <button
         onClick={() => setOpen(true)}
-        className="lg:hidden flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2 text-sm font-medium hover:border-black transition-colors"
+        className="lg:hidden flex items-center gap-2 border border-[#EEEEEC] px-4 py-2.5 eyebrow text-[#292929] hover:border-black transition-colors"
       >
-        <SlidersHorizontal size={15} />
+        <SlidersHorizontal size={14} />
         Filters
         {hasFilters && (
-          <span className="ml-1 w-5 h-5 bg-black text-white rounded-full text-[10px] flex items-center justify-center">
+          <span className="ml-1 w-5 h-5 bg-black text-white text-[9px] flex items-center justify-center">
             {[currentCategory, ...currentSizes, ...currentColors].filter(Boolean).length}
           </span>
         )}
@@ -270,8 +266,8 @@ export function FilterSidebar() {
       )}
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:block w-64 shrink-0">
-        <div className="sticky top-6 bg-white border border-gray-200 rounded-2xl p-5">
+      <aside className="hidden lg:block w-56 shrink-0">
+        <div className="sticky top-6">
           {inner}
         </div>
       </aside>

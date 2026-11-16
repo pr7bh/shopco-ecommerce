@@ -3,6 +3,7 @@ export const instant = false;
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ProductGallery } from "@/components/products/ProductGallery";
 import { ProductOptions } from "@/components/products/ProductOptions";
 import { ReviewsSection } from "@/components/products/ReviewsSection";
@@ -12,8 +13,6 @@ import {
   getRelatedProducts,
   PRODUCT_REVIEWS,
 } from "@/lib/products";
-import { formatPrice } from "@/lib/utils";
-import { StarRating } from "@/components/products/StarRating";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -41,35 +40,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const related = getRelatedProducts(product, 4);
 
   return (
-    <div className="shopco-container py-10 space-y-14">
+    <div className="shopco-container py-8 space-y-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-gray-500">
-        <a href="/" className="hover:text-black transition-colors">
-          Home
-        </a>
+      <nav className="flex items-center gap-2 text-xs text-[#B8A99A]">
+        <Link href="/" className="hover:text-[#292929] transition-colors">Home</Link>
         <span>/</span>
-        <a href="/shop" className="hover:text-black transition-colors">
-          Shop
-        </a>
+        <Link href="/shop" className="hover:text-[#292929] transition-colors">Shop</Link>
         <span>/</span>
-        <a
+        <Link
           href={`/shop?category=${product.category}`}
-          className="hover:text-black transition-colors capitalize"
+          className="hover:text-[#292929] transition-colors capitalize"
         >
           {product.category}
-        </a>
+        </Link>
         <span>/</span>
-        <span className="text-black font-medium truncate max-w-[200px]">
+        <span className="text-[#292929] font-medium truncate max-w-[200px]">
           {product.name}
         </span>
       </nav>
 
       {/* Main product section */}
-      <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+      <div className="grid xl:grid-cols-[3fr_2fr] gap-10 xl:gap-16 items-start">
         {/* Gallery */}
         <Suspense
           fallback={
-            <div className="aspect-square bg-gray-100 rounded-2xl animate-pulse" />
+            <div className="aspect-[3/4] bg-[#F7F6F3] animate-pulse" />
           }
         >
           <ProductGallery
@@ -79,35 +74,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
           />
         </Suspense>
 
-        {/* Product info + actions */}
-        <div className="space-y-6">
-          {/* Title */}
-          <h1
-            className="text-3xl font-bold uppercase leading-tight"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {product.name}
-          </h1>
-
-          {/* Summary rating */}
-          <StarRating
-            rating={product.rating}
-            reviewCount={product.reviewCount}
-            size={14}
-            showLabel
-          />
-
-          {/* Price preview */}
-          <div className="flex items-baseline gap-3">
-            <span className="text-2xl font-bold">{formatPrice(product.price)}</span>
-            {product.originalPrice && (
-              <span className="text-base text-gray-400 line-through">
-                {formatPrice(product.originalPrice)}
-              </span>
-            )}
-          </div>
-
-          {/* Options: color, size, qty, add to cart */}
+        {/* Sticky product info */}
+        <div className="xl:sticky xl:top-24">
           <ProductOptions product={product} />
         </div>
       </div>

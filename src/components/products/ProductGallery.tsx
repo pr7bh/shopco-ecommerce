@@ -15,23 +15,25 @@ export function ProductGallery({ images, name, model3dUrl }: ProductGalleryProps
   const [show3d, setShow3d] = useState(false);
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-3">
       {/* Thumbnail strip */}
-      <div className="flex flex-col gap-3 w-20 shrink-0">
+      <div className="flex flex-col gap-2 w-[72px] shrink-0">
         {images.map((src, i) => (
           <button
             key={i}
             onClick={() => { setActive(i); setShow3d(false); }}
             className={cn(
-              "relative w-20 h-20 rounded-xl overflow-hidden border-2 transition-all",
-              active === i && !show3d ? "border-black" : "border-transparent hover:border-gray-300"
+              "relative w-full aspect-[3/4] overflow-hidden transition-all duration-200",
+              active === i && !show3d
+                ? "outline outline-1 outline-black"
+                : "opacity-60 hover:opacity-100"
             )}
           >
             <Image
               src={src}
-              alt={`${name} thumbnail ${i + 1}`}
+              alt={`${name} view ${i + 1}`}
               fill
-              sizes="80px"
+              sizes="72px"
               className="object-cover"
             />
           </button>
@@ -40,8 +42,8 @@ export function ProductGallery({ images, name, model3dUrl }: ProductGalleryProps
           <button
             onClick={() => setShow3d(true)}
             className={cn(
-              "w-20 h-20 rounded-xl border-2 transition-all flex items-center justify-center bg-gray-50 text-xs font-medium text-gray-600",
-              show3d ? "border-black" : "border-transparent hover:border-gray-300"
+              "w-full aspect-square border transition-all flex items-center justify-center bg-[#F7F6F3] text-xs font-semibold tracking-widest",
+              show3d ? "border-black text-black" : "border-transparent text-gray-400 hover:border-gray-300"
             )}
           >
             3D
@@ -49,11 +51,10 @@ export function ProductGallery({ images, name, model3dUrl }: ProductGalleryProps
         )}
       </div>
 
-      {/* Main view */}
-      <div className="flex-1 relative aspect-square rounded-2xl overflow-hidden bg-gray-50">
+      {/* Main image */}
+      <div className="flex-1 relative aspect-[3/4] bg-[#F7F6F3] overflow-hidden">
         {show3d && model3dUrl ? (
           <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
-            {/* ProductViewerLoader is dynamically imported where needed */}
             Loading 3D…
           </div>
         ) : (
@@ -61,7 +62,7 @@ export function ProductGallery({ images, name, model3dUrl }: ProductGalleryProps
             src={images[active]}
             alt={name}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, 55vw"
             className="object-cover"
             priority
           />

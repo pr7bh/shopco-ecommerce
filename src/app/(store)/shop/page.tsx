@@ -49,58 +49,61 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     : "All Products";
 
   return (
-    <div className="shopco-container py-10">
-      {/* Page heading */}
-      <div className="mb-8">
-        <h1
-          className="text-3xl font-bold uppercase"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          {title}
-        </h1>
-        {sp.q && (
-          <p className="text-sm text-gray-500 mt-1">
-            Search results for &ldquo;{sp.q}&rdquo;
-          </p>
-        )}
-      </div>
-
-      <div className="flex gap-8 items-start">
-        {/* Sidebar — Suspense required because it uses useSearchParams */}
-        <Suspense fallback={null}>
-          <FilterSidebar />
-        </Suspense>
-
-        {/* Product grid */}
-        <div className="flex-1 min-w-0">
-          <Suspense fallback={null}>
-            <SortBar total={total} page={page} pageSize={PAGE_SIZE} />
-          </Suspense>
-
-          {paginated.length === 0 ? (
-            <div className="text-center py-24 text-gray-400">
-              <p className="text-lg font-medium mb-2">No products found</p>
-              <p className="text-sm">Try adjusting your filters.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-              {paginated.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
-
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <Pagination
-              page={page}
-              totalPages={totalPages}
-              searchParams={sp}
-            />
+    <>
+      {/* Editorial header */}
+      <div className="bg-[#292929] py-12 md:py-16">
+        <div className="shopco-container">
+          <p className="eyebrow text-[#B8A99A] mb-4">Collection</p>
+          <h1
+            className="campaign-heading text-white"
+          >
+            {title}
+          </h1>
+          {sp.q && (
+            <p className="text-sm text-[#B8A99A] mt-3">
+              Search results for &ldquo;{sp.q}&rdquo;
+            </p>
           )}
         </div>
       </div>
-    </div>
+
+      <div className="shopco-container py-10">
+        <div className="flex gap-10 items-start">
+          {/* Sidebar — Suspense required because it uses useSearchParams */}
+          <Suspense fallback={null}>
+            <FilterSidebar />
+          </Suspense>
+
+          {/* Product grid */}
+          <div className="flex-1 min-w-0">
+            <Suspense fallback={null}>
+              <SortBar total={total} page={page} pageSize={PAGE_SIZE} />
+            </Suspense>
+
+            {paginated.length === 0 ? (
+              <div className="text-center py-24">
+                <p className="eyebrow text-[#B8A99A] mb-3">No results</p>
+                <p className="text-sm text-gray-500">Try adjusting your filters.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+                {paginated.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            )}
+
+            {totalPages > 1 && (
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                searchParams={sp}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -126,27 +129,27 @@ function Pagination({
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
-    <nav className="flex items-center justify-center gap-2 mt-10" aria-label="Pagination">
+    <nav className="flex items-center justify-center gap-2 mt-12" aria-label="Pagination">
       <a
         href={page > 1 ? buildHref(page - 1) : undefined}
         aria-disabled={page <= 1}
-        className={`px-4 py-2 text-sm border rounded-full transition-colors ${
+        className={`px-5 py-2.5 eyebrow border transition-colors ${
           page <= 1
-            ? "border-gray-100 text-gray-300 pointer-events-none"
-            : "border-gray-200 hover:border-black"
+            ? "border-[#EEEEEC] text-[#B8A99A] pointer-events-none"
+            : "border-[#292929] text-[#292929] hover:bg-black hover:text-white hover:border-black"
         }`}
       >
-        ← Previous
+        ← Prev
       </a>
       <div className="flex gap-1">
         {pages.map((p) => (
           <a
             key={p}
             href={buildHref(p)}
-            className={`w-9 h-9 flex items-center justify-center text-sm rounded-full border transition-colors ${
+            className={`w-9 h-9 flex items-center justify-center text-xs font-bold border transition-colors ${
               p === page
                 ? "bg-black text-white border-black"
-                : "border-gray-200 hover:border-black"
+                : "border-[#EEEEEC] text-[#292929] hover:border-black"
             }`}
             aria-current={p === page ? "page" : undefined}
           >
@@ -157,10 +160,10 @@ function Pagination({
       <a
         href={page < totalPages ? buildHref(page + 1) : undefined}
         aria-disabled={page >= totalPages}
-        className={`px-4 py-2 text-sm border rounded-full transition-colors ${
+        className={`px-5 py-2.5 eyebrow border transition-colors ${
           page >= totalPages
-            ? "border-gray-100 text-gray-300 pointer-events-none"
-            : "border-gray-200 hover:border-black"
+            ? "border-[#EEEEEC] text-[#B8A99A] pointer-events-none"
+            : "border-[#292929] text-[#292929] hover:bg-black hover:text-white hover:border-black"
         }`}
       >
         Next →

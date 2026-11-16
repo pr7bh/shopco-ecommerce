@@ -6,8 +6,8 @@ import { useTransition } from "react";
 const SORT_OPTIONS = [
   { label: "Most Popular", value: "featured" },
   { label: "Newest", value: "newest" },
-  { label: "Price: Low to High", value: "price-asc" },
-  { label: "Price: High to Low", value: "price-desc" },
+  { label: "Price: Low → High", value: "price-asc" },
+  { label: "Price: High → Low", value: "price-desc" },
   { label: "Top Rated", value: "rating" },
 ] as const;
 
@@ -37,22 +37,19 @@ export function SortBar({ total, page, pageSize }: SortBarProps) {
   }
 
   return (
-    <div className="flex items-center justify-between gap-4 mb-6">
-      <p className="text-sm text-gray-600">
-        Showing{" "}
-        <span className="font-medium text-black">
-          {from}–{to}
-        </span>{" "}
+    <div className="flex items-center justify-between gap-4 mb-7">
+      <p className="text-xs text-[#B8A99A]">
+        <span className="text-[#292929] font-semibold">{from}–{to}</span>{" "}
         of{" "}
-        <span className="font-medium text-black">{total}</span> products
+        <span className="text-[#292929] font-semibold">{total}</span> products
       </p>
 
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-500 hidden sm:block">Sort by:</span>
+        <span className="eyebrow text-[#B8A99A] hidden sm:block">Sort</span>
         <select
           value={sort}
           onChange={(e) => handleSort(e.target.value)}
-          className="text-sm border border-gray-200 rounded-full px-3 py-1.5 focus:outline-none focus:border-black bg-white cursor-pointer"
+          className="eyebrow text-[#292929] border border-[#EEEEEC] px-3 py-2 focus:outline-none focus:border-black bg-white cursor-pointer hover:border-black transition-colors"
         >
           {SORT_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>

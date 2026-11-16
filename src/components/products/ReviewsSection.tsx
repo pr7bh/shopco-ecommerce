@@ -16,11 +16,11 @@ type Tab = (typeof TABS)[number];
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="border border-gray-100 rounded-2xl p-5 space-y-3">
+    <div className="border border-[#EEEEEC] p-5 space-y-3">
       <div className="flex items-start justify-between gap-2">
         <div>
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-sm">{review.userName}</span>
+            <span className="font-semibold text-sm text-[#292929]">{review.userName}</span>
             {review.verified && (
               <span className="flex items-center gap-1 text-green-600 text-[10px] font-medium">
                 <CheckCircle size={11} />
@@ -30,7 +30,7 @@ function ReviewCard({ review }: { review: Review }) {
           </div>
           <StarRating rating={review.rating} size={12} className="mt-1" />
         </div>
-        <span className="text-xs text-gray-400 shrink-0">
+        <span className="text-xs text-[#B8A99A] shrink-0">
           {new Date(review.createdAt).toLocaleDateString("en-US", {
             month: "short",
             day: "numeric",
@@ -52,21 +52,21 @@ export function ReviewsSection({ reviews }: ReviewsSectionProps) {
   return (
     <div>
       {/* Tabs */}
-      <div className="flex border-b border-gray-200 mb-8">
+      <div className="flex border-b border-[#EEEEEC] mb-10">
         {TABS.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={cn(
-              "px-5 py-3 text-sm font-medium transition-colors whitespace-nowrap",
+              "px-5 py-4 eyebrow transition-colors whitespace-nowrap",
               activeTab === tab
                 ? "border-b-2 border-black text-black"
-                : "text-gray-500 hover:text-black"
+                : "text-[#B8A99A] hover:text-[#292929]"
             )}
           >
             {tab}
             {tab === "Rating & Reviews" && reviews.length > 0 && (
-              <span className="ml-1.5 text-xs text-gray-400">({reviews.length})</span>
+              <span className="ml-1.5 text-[10px] text-[#B8A99A]">({reviews.length})</span>
             )}
           </button>
         ))}
@@ -77,11 +77,11 @@ export function ReviewsSection({ reviews }: ReviewsSectionProps) {
         <div>
           {reviews.length === 0 ? (
             <p className="text-gray-500 text-sm py-8 text-center">
-              No reviews yet. Be the first to review this product!
+              No reviews yet. Be the first to review this product.
             </p>
           ) : (
             <>
-              <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
                 {visible.map((r) => (
                   <ReviewCard key={r.id} review={r} />
                 ))}
@@ -90,7 +90,7 @@ export function ReviewsSection({ reviews }: ReviewsSectionProps) {
                 <div className="text-center">
                   <button
                     onClick={() => setShowAll((s) => !s)}
-                    className="border border-gray-200 px-6 py-2.5 rounded-full text-sm font-medium hover:border-black transition-colors"
+                    className="border border-[#292929] px-8 py-3 eyebrow text-[#292929] hover:bg-black hover:text-white transition-colors"
                   >
                     {showAll ? "Show Less" : `Load All ${reviews.length} Reviews`}
                   </button>
@@ -103,24 +103,31 @@ export function ReviewsSection({ reviews }: ReviewsSectionProps) {
 
       {/* Panel: Product Details */}
       {activeTab === "Product Details" && (
-        <div className="text-sm text-gray-600 space-y-3 max-w-2xl">
+        <div className="text-sm text-gray-600 space-y-4 max-w-2xl">
           <p>
             All products are made from premium materials and go through strict
             quality control. Each garment is inspected before dispatch to ensure
             the highest standards.
           </p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>100% premium cotton / stretch blend (varies by product)</li>
-            <li>Machine wash cold, tumble dry low</li>
-            <li>Ships in 2–5 business days</li>
-            <li>Free returns within 30 days</li>
+          <ul className="space-y-2">
+            {[
+              "100% premium cotton / stretch blend (varies by product)",
+              "Machine wash cold, tumble dry low",
+              "Ships in 2–5 business days",
+              "Free returns within 30 days",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-[#B8A99A] shrink-0" />
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
       )}
 
       {/* Panel: FAQs */}
       {activeTab === "FAQs" && (
-        <div className="text-sm text-gray-600 space-y-5 max-w-2xl">
+        <div className="text-sm text-gray-600 space-y-6 max-w-2xl">
           {[
             {
               q: "How do I find the right size?",
@@ -136,7 +143,7 @@ export function ReviewsSection({ reviews }: ReviewsSectionProps) {
             },
           ].map(({ q, a }) => (
             <div key={q}>
-              <p className="font-semibold text-black mb-1">{q}</p>
+              <p className="eyebrow text-[#292929] mb-2">{q}</p>
               <p>{a}</p>
             </div>
           ))}
