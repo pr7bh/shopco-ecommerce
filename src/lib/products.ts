@@ -286,9 +286,9 @@ const CORE_PRODUCTS: Product[] = [
 // ─── Full product catalog ────────────────────────────────────────────
 export const ALL_PRODUCTS: Product[] = [
   ...CORE_PRODUCTS,
-  ...WOMEN_PRODUCTS,
-  ...MEN_PRODUCTS,
-  ...ACCESSORIES_PRODUCTS,
+  ...(WOMEN_PRODUCTS as unknown as Product[]),
+  ...(MEN_PRODUCTS as unknown as Product[]),
+  ...(ACCESSORIES_PRODUCTS as unknown as Product[]),
 ];
 
 // ─── Per-product reviews ─────────────────────────────────────────────

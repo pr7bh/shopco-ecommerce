@@ -4,7 +4,7 @@ import { FilterSidebar } from "@/components/shop/FilterSidebar";
 import { SortBar } from "@/components/shop/SortBar";
 import { ALL_PRODUCTS, filterAndSort } from "@/lib/products";
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 48;
 
 interface ShopPageProps {
   searchParams: Promise<{
@@ -16,6 +16,7 @@ interface ShopPageProps {
     sort?: string;
     q?: string;
     page?: string;
+    gender?: string;
   }>;
 }
 
@@ -37,6 +38,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
     sizes: sp.sizes?.split(",").filter(Boolean),
     sort: sp.sort,
     q: sp.q,
+    gender: sp.gender,
   });
 
   const page = Math.max(1, Number(sp.page ?? 1));
@@ -44,9 +46,21 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const totalPages = Math.ceil(total / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  const title = sp.category
+  const title = sp.gender
+    ? sp.gender.charAt(0).toUpperCase() + sp.gender.slice(1)
+    : sp.category
     ? sp.category.charAt(0).toUpperCase() + sp.category.slice(1).replace(/-/g, " ")
     : "All Products";
+
+  function genderHref(g?: string) {
+    const params = new URLSearchParams();
+    if (sp.category) params.set("category", sp.category);
+    if (sp.sort) params.set("sort", sp.sort);
+    if (sp.q) params.set("q", sp.q);
+    if (g) params.set("gender", g);
+    const q = params.toString();
+    return `/shop${q ? `?${q}` : ""}`;
+  }
 
   return (
     <>
@@ -80,13 +94,38 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               <SortBar total={total} page={page} pageSize={PAGE_SIZE} />
             </Suspense>
 
+            {/* Gender filter tabs */}
+            <div className="flex border-b border-[#EEEEEC] mb-6">
+              {[
+                { label: "All", value: undefined },
+                { label: "Women", value: "women" },
+                { label: "Men", value: "men" },
+                { label: "Accessories", value: "unisex" },
+              ].map(({ label, value }) => {
+                const active = sp.gender === value || (!sp.gender && value === undefined);
+                return (
+                  <a
+                    key={label}
+                    href={genderHref(value)}
+                    className={`px-5 py-3 text-xs tracking-widest uppercase transition-colors whitespace-nowrap ${
+                      active
+                        ? "border-b-2 border-black font-semibold text-black"
+                        : "text-gray-400 hover:text-black"
+                    }`}
+                  >
+                    {label}
+                  </a>
+                );
+              })}
+            </div>
+
             {paginated.length === 0 ? (
               <div className="text-center py-24">
                 <p className="eyebrow text-[#B8A99A] mb-3">No results</p>
                 <p className="text-sm text-gray-500">Try adjusting your filters.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
                 {paginated.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}

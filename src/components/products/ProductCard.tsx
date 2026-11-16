@@ -43,8 +43,17 @@ export function ProductCard({ product, className }: ProductCardProps) {
           alt={product.name}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-all duration-700 group-hover:scale-105"
         />
+        {product.images[1] && (
+          <Image
+            src={product.images[1]}
+            alt={product.name}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          />
+        )}
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
