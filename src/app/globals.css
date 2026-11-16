@@ -31,6 +31,15 @@
   --black-bar: #000000;
 
   --radius: 0.5rem;
+
+  /* ── Editorial design tokens ──────────────────────────────────── */
+  --off-white: #F7F6F3;
+  --light-gray: #EEEEEC;
+  --charcoal: #292929;
+  --accent-warm: #B8A99A;
+  --accent-warm-light: #D4C8BE;
+  --nav-h: 68px;
+  --bar-h: 40px;
 }
 
 /* ─── Tailwind v4 theme mapping ───────────────────────────────── */
@@ -55,6 +64,10 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-star: var(--star);
+  --color-off-white: var(--off-white);
+  --color-light-gray: var(--light-gray);
+  --color-charcoal: var(--charcoal);
+  --color-accent-warm: var(--accent-warm);
 
   /* SHOP.CO gray scale */
   --color-gray-50: #fafafa;
@@ -183,5 +196,36 @@
     .hero-aurora::after {
       animation: none;
     }
+  }
+
+  /* ── Editorial layout helpers ───────────────────────────────── */
+  .editorial-section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .campaign-heading {
+    font-family: var(--font-hero);
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .img-zoom {
+    overflow: hidden;
+  }
+  .img-zoom img {
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .img-zoom:hover img {
+    transform: scale(1.05);
   }
 }

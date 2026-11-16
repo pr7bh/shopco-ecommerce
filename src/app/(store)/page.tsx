@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/HeroSection";
-import { BrandBar } from "@/components/home/BrandBar";
-import { ProductSection } from "@/components/home/ProductSection";
 import { StyleCategoryGrid } from "@/components/home/StyleCategoryGrid";
+import { ProductSection } from "@/components/home/ProductSection";
+import { CampaignSection } from "@/components/home/CampaignSection";
+import { SeasonalBanner } from "@/components/home/SeasonalBanner";
+import { BrandPhilosophy } from "@/components/home/BrandPhilosophy";
 import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { NEW_ARRIVALS, TOP_SELLING } from "@/lib/mock-data";
@@ -17,19 +19,22 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <BrandBar />
+      <StyleCategoryGrid />
       <ProductSection
         title="New Arrivals"
+        subtitle="JUST DROPPED"
         products={NEW_ARRIVALS}
         viewAllHref="/new-arrivals"
       />
-      <div className="border-t border-gray-200" />
+      <CampaignSection />
       <ProductSection
         title="Top Selling"
+        subtitle="TRENDING NOW"
         products={TOP_SELLING}
         viewAllHref="/shop?sort=top-selling"
       />
-      <StyleCategoryGrid />
+      <SeasonalBanner />
+      <BrandPhilosophy />
       <TestimonialSection />
       <NewsletterSection />
     </>

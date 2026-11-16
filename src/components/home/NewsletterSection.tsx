@@ -5,60 +5,81 @@ import { ArrowRight } from "lucide-react";
 
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
-    setSubmitted(true);
+    if (!email.includes("@")) {
+      setStatus("error");
+      return;
+    }
+    setStatus("success");
     setEmail("");
   }
 
   return (
-    <section className="shopco-section px-4 md:px-6">
+    <section className="bg-black text-white py-24 md:py-32">
       <div className="shopco-container">
-        <div className="bg-black rounded-[var(--radius-card-lg)] p-8 md:p-12 lg:p-16">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            {/* Headline */}
-            <h2
-              className="text-white text-3xl font-black uppercase leading-tight max-w-[420px] md:text-4xl lg:text-5xl"
-              style={{ fontFamily: "var(--font-hero)" }}
-            >
-              Stay Upto Date About Our Latest Offers
-            </h2>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="eyebrow text-white/40 mb-6">STAY CONNECTED</div>
+          <h2
+            className="font-black uppercase leading-none tracking-tight mb-5"
+            style={{
+              fontFamily: "var(--font-hero)",
+              fontSize: "clamp(2rem, 5vw, 4rem)",
+            }}
+          >
+            JOIN THE
+            <br />
+            SHOP.CO COMMUNITY
+          </h2>
+          <p className="text-white/50 text-sm md:text-base leading-relaxed mb-10 max-w-sm mx-auto">
+            Get first access to new arrivals, exclusive offers, and style
+            inspiration delivered straight to your inbox.
+          </p>
 
-            {/* Form */}
-            <div className="flex flex-col gap-3 w-full lg:max-w-[420px]">
-              {submitted ? (
-                <div className="bg-white/10 text-white rounded-full px-6 py-3.5 text-sm text-center">
-                  ✓ You&apos;re subscribed! Check your inbox.
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                      ✉
-                    </span>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email address"
-                      className="w-full bg-white rounded-full pl-10 pr-4 py-3.5 text-sm outline-none focus:ring-2 focus:ring-white/50 placeholder:text-gray-400"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="flex items-center justify-center gap-2 bg-white text-black text-sm font-semibold rounded-full px-6 py-3.5 hover:bg-gray-100 transition-colors"
-                  >
-                    Subscribe to Newsletter
-                    <ArrowRight size={15} />
-                  </button>
-                </form>
-              )}
+          {status === "success" ? (
+            <div className="border border-white/20 py-5 px-8 inline-flex items-center gap-3 text-sm tracking-wide">
+              <span className="text-[#B8A99A]">✓</span> You&apos;re on the list
+              — look out for our next drop.
             </div>
-          </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row items-stretch gap-0 max-w-md mx-auto"
+            >
+              <div className="flex-1 relative border-b border-white/30 focus-within:border-white transition-colors">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status === "error") setStatus("idle");
+                  }}
+                  placeholder="Your email address"
+                  className="w-full bg-transparent text-white placeholder:text-white/30 text-sm py-3 outline-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="sm:ml-6 flex items-center justify-center gap-2 border border-white/30 text-white text-xs tracking-widest uppercase px-8 py-3 hover:border-white hover:bg-white hover:text-black transition-all mt-4 sm:mt-0 self-end"
+              >
+                SUBSCRIBE <ArrowRight size={14} />
+              </button>
+            </form>
+          )}
+
+          {status === "error" && (
+            <p className="text-red-400 text-xs mt-3">
+              Please enter a valid email address.
+            </p>
+          )}
+
+          <p className="text-white/25 text-xs mt-8 tracking-wide">
+            No spam. Unsubscribe at any time.
+          </p>
         </div>
       </div>
     </section>
