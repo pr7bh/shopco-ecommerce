@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, ShoppingCart, X } from "lucide-react";
+import { Heart, ShoppingBag, X } from "lucide-react";
 import { useWishlistStore } from "@/features/wishlist/store";
 import { useCartStore } from "@/features/cart/store";
 import { formatPrice } from "@/lib/utils";
@@ -20,88 +20,118 @@ export function WishlistPageClient() {
 
   if (items.length === 0) {
     return (
-      <div className="shopco-container py-20 flex flex-col items-center gap-6 text-center">
-        <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center">
-          <Heart size={36} className="text-gray-300" />
+      <div className="shopco-container py-24 flex flex-col items-center gap-8 text-center">
+        <div className="w-20 h-20 border border-[#EEEEEC] flex items-center justify-center">
+          <Heart size={32} strokeWidth={1} className="text-[#B8A99A]" />
         </div>
         <div>
+          <p className="eyebrow text-[#B8A99A] mb-3">Wishlist</p>
           <h1
-            className="text-2xl font-bold mb-2"
-            style={{ fontFamily: "var(--font-display)" }}
+            className="text-3xl font-black uppercase tracking-tight mb-2"
+            style={{ fontFamily: "var(--font-hero)" }}
           >
-            Your wishlist is empty
+            Nothing saved yet
           </h1>
-          <p className="text-gray-500 text-sm">
-            Save items you love and come back to them later.
+          <p className="text-sm text-[#B8A99A]">
+            Pieces you love will be waiting for you here.
           </p>
         </div>
         <Link
           href="/shop"
-          className="bg-black text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-900 transition-colors"
+          className="eyebrow bg-black text-white px-10 py-4 hover:bg-[#292929] transition-colors"
         >
-          Shop Now
+          Explore Collection
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="shopco-container py-10">
-      <div className="flex items-baseline gap-3 mb-8">
-        <h1
-          className="text-2xl font-bold uppercase tracking-tight"
-          style={{ fontFamily: "var(--font-hero)" }}
+    <div className="shopco-container py-10 pb-20">
+      {/* Header */}
+      <p className="eyebrow text-[#B8A99A] mb-2">Wishlist</p>
+      <h1
+        className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-10"
+        style={{ fontFamily: "var(--font-hero)" }}
+      >
+        Saved Pieces
+        <span
+          className="ml-4 text-base font-normal text-[#B8A99A] normal-case tracking-normal"
+          style={{ fontFamily: "var(--font-display)" }}
         >
-          Wishlist
-        </h1>
-        <span className="text-sm text-gray-500">({items.length} items)</span>
-      </div>
+          {items.length} items
+        </span>
+      </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
         {items.map((product) => (
-          <div
-            key={product.id}
-            className="group bg-white border border-gray-200 rounded-[var(--radius-card)] overflow-hidden flex flex-col"
-          >
+          <div key={product.id} className="group flex flex-col">
             {/* Image */}
-            <div className="relative aspect-square bg-gray-100 overflow-hidden">
-              <Link href={`/products/${product.slug}`}>
+            <div className="relative overflow-hidden bg-[#F7F6F3]" style={{ aspectRatio: "3/4" }}>
+              <Link href={`/products/${product.slug}`} className="block w-full h-full">
                 <Image
                   src={product.images[0]}
                   alt={product.name}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </Link>
-              {/* Remove button */}
+
+              {/* Remove */}
               <button
                 onClick={() => removeItem(product.id)}
                 aria-label="Remove from wishlist"
-                className="absolute top-2 right-2 w-7 h-7 bg-white rounded-full shadow flex items-center justify-center text-red-400 hover:text-red-600 transition-colors"
+                className="absolute top-3 right-3 w-8 h-8 bg-white flex items-center justify-center text-[#B8A99A] hover:text-black transition-colors opacity-0 group-hover:opacity-100"
               >
-                <X size={13} />
+                <X size={14} strokeWidth={1.5} />
               </button>
+
+              {/* Add to bag overlay */}
+              <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <button
+                  onClick={() => moveToCart(product.id)}
+                  className="w-full eyebrow bg-black text-white py-3 hover:bg-[#292929] transition-colors flex items-center justify-center gap-2"
+                >
+                  <ShoppingBag size={12} strokeWidth={1.5} />
+                  Add to Bag
+                </button>
+              </div>
             </div>
 
             {/* Info */}
-            <div className="p-3 flex flex-col flex-1 gap-2">
+            <div className="pt-3 flex-1 flex flex-col">
+              <p className="eyebrow text-[#B8A99A] mb-1 capitalize">{product.category}</p>
               <Link
                 href={`/products/${product.slug}`}
-                className="font-medium text-sm leading-tight line-clamp-2 hover:underline"
+                className="font-semibold text-sm uppercase tracking-tight leading-tight hover:text-[#292929] transition-colors mb-2 line-clamp-2"
+                style={{ fontFamily: "var(--font-display)" }}
               >
                 {product.name}
               </Link>
-              <span className="font-bold text-sm">{formatPrice(product.price)}</span>
-
-              <button
-                onClick={() => moveToCart(product.id)}
-                className="mt-auto flex items-center justify-center gap-2 bg-black text-white text-xs font-medium py-2 rounded-full hover:bg-gray-900 transition-colors"
-              >
-                <ShoppingCart size={13} />
-                Move to Cart
-              </button>
+              <div className="flex items-center gap-2 mt-auto">
+                <span
+                  className="font-bold text-sm"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {formatPrice(product.price)}
+                </span>
+                {product.originalPrice && (
+                  <span className="text-xs text-[#B8A99A] line-through">
+                    {formatPrice(product.originalPrice)}
+                  </span>
+                )}
+              </div>
             </div>
+
+            {/* Mobile add to bag (always visible on small screens) */}
+            <button
+              onClick={() => moveToCart(product.id)}
+              className="mt-3 md:hidden w-full eyebrow border border-[#EEEEEC] py-3 text-[#292929] hover:bg-black hover:text-white hover:border-black transition-colors flex items-center justify-center gap-2"
+            >
+              <ShoppingBag size={12} strokeWidth={1.5} />
+              Add to Bag
+            </button>
           </div>
         ))}
       </div>

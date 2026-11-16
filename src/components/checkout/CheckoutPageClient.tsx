@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Check, ChevronRight, AlertTriangle } from "lucide-react";
+import { Check, AlertTriangle } from "lucide-react";
 import { useCartStore } from "@/features/cart/store";
 import { useCheckoutStore } from "@/features/checkout/store";
 import { useOrdersStore } from "@/features/orders/store";
@@ -33,11 +33,11 @@ const shippingSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 type ShippingFormData = z.infer<typeof shippingSchema>;
 
-// ── Delivery cost helper ────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────────────
 function deliveryCost(method: DeliveryMethod, cartShipping: number): number {
   if (method === "express") return 25;
   if (method === "overnight") return 45;
-  return cartShipping; // standard
+  return cartShipping;
 }
 
 function deliveryLabel(method: DeliveryMethod): string {
@@ -51,30 +51,34 @@ const STEPS = ["Contact", "Shipping", "Delivery", "Payment", "Review"];
 
 function StepIndicator({ current }: { current: number }) {
   return (
-    <ol className="flex items-center gap-0 mb-8">
+    <div className="flex items-center gap-0 mb-10">
       {STEPS.map((label, idx) => {
         const num = idx + 1;
         const done = num < current;
         const active = num === current;
         return (
-          <li key={label} className="flex items-center flex-1 last:flex-none">
-            <div className="flex flex-col items-center">
+          <div key={label} className="flex items-center flex-1 last:flex-none">
+            <div className="flex flex-col items-center gap-1.5">
               <div
                 className={cn(
-                  "w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold border-2 transition-all",
+                  "w-7 h-7 flex items-center justify-center transition-all",
                   done
-                    ? "bg-black border-black text-white"
+                    ? "bg-black text-white"
                     : active
-                    ? "bg-black border-black text-white"
-                    : "bg-white border-gray-300 text-gray-400"
+                    ? "bg-black text-white"
+                    : "border border-[#EEEEEC] text-[#B8A99A]"
                 )}
               >
-                {done ? <Check size={14} /> : num}
+                {done ? (
+                  <Check size={12} strokeWidth={2} />
+                ) : (
+                  <span className="text-[10px] font-bold">{num}</span>
+                )}
               </div>
               <span
                 className={cn(
-                  "text-[10px] mt-1 hidden sm:block",
-                  active ? "font-semibold text-black" : "text-gray-400"
+                  "eyebrow text-[9px] hidden sm:block",
+                  active ? "text-[#292929]" : done ? "text-[#292929]" : "text-[#B8A99A]"
                 )}
               >
                 {label}
@@ -83,15 +87,15 @@ function StepIndicator({ current }: { current: number }) {
             {idx < STEPS.length - 1 && (
               <div
                 className={cn(
-                  "flex-1 h-0.5 mx-1 mb-4",
-                  done ? "bg-black" : "bg-gray-200"
+                  "flex-1 h-px mx-2 mb-4",
+                  done ? "bg-black" : "bg-[#EEEEEC]"
                 )}
               />
             )}
-          </li>
+          </div>
         );
       })}
-    </ol>
+    </div>
   );
 }
 
@@ -104,68 +108,92 @@ function OrderSummary() {
   const total = subtotal - promoDiscount + shipCost;
 
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded-[var(--radius-card-lg)] p-5 space-y-4 lg:sticky lg:top-24">
-      <h3 className="font-semibold text-sm uppercase tracking-wider text-gray-500">
-        Order Summary
-      </h3>
+    <div className="bg-[#F7F6F3] p-6 space-y-6 lg:sticky lg:top-24">
+      <p className="eyebrow text-[#292929]">Order Summary</p>
 
-      <div className="space-y-3 max-h-56 overflow-y-auto pr-1">
+      <div className="space-y-4 max-h-64 overflow-y-auto pr-1">
         {items.map((item) => (
           <div
             key={`${item.product.id}:${item.size ?? ""}:${item.color?.hex ?? ""}`}
             className="flex gap-3"
           >
-            <div className="relative w-12 h-12 shrink-0 rounded-lg overflow-hidden bg-gray-100">
+            <div className="relative w-14 shrink-0 bg-white overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <Image
                 src={item.product.images[0]}
                 alt={item.product.name}
                 fill
-                sizes="48px"
+                sizes="56px"
                 className="object-cover"
               />
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-black text-white text-[9px] font-bold flex items-center justify-center">
+                {item.quantity}
+              </span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-medium line-clamp-1">{item.product.name}</p>
-              {item.size && (
-                <p className="text-xs text-gray-400">Size: {item.size}</p>
-              )}
-              <p className="text-xs text-gray-500">
-                {formatPrice(item.product.price)} × {item.quantity}
+              <p
+                className="text-xs font-semibold uppercase tracking-tight leading-tight line-clamp-2"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {item.product.name}
               </p>
+              {item.size && (
+                <p className="eyebrow text-[#B8A99A] text-[9px] mt-1">Size: {item.size}</p>
+              )}
             </div>
-            <span className="text-xs font-semibold shrink-0">
+            <span
+              className="text-xs font-bold shrink-0"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               {formatPrice(item.product.price * item.quantity)}
             </span>
           </div>
         ))}
       </div>
 
-      <hr className="border-gray-200" />
+      <div className="border-t border-[#EEEEEC]" />
 
-      <div className="space-y-2 text-sm">
+      <div className="space-y-3 text-sm">
         <div className="flex justify-between">
-          <span className="text-gray-500">Subtotal</span>
-          <span>{formatPrice(subtotal)}</span>
+          <span className="text-[#B8A99A]">Subtotal</span>
+          <span className="font-medium">{formatPrice(subtotal)}</span>
         </div>
         {promoDiscount > 0 && (
-          <div className="flex justify-between text-green-600">
-            <span>Discount ({promoCode})</span>
-            <span>−{formatPrice(promoDiscount)}</span>
+          <div className="flex justify-between">
+            <span className="text-[#B8A99A]">Discount ({promoCode})</span>
+            <span className="font-medium">−{formatPrice(promoDiscount)}</span>
           </div>
         )}
         <div className="flex justify-between">
-          <span className="text-gray-500">Shipping</span>
-          <span>{shipCost === 0 ? "FREE" : formatPrice(shipCost)}</span>
+          <span className="text-[#B8A99A]">Shipping</span>
+          <span className="font-medium">{shipCost === 0 ? "FREE" : formatPrice(shipCost)}</span>
         </div>
-        <hr className="border-gray-200" />
-        <div className="flex justify-between font-bold">
-          <span>Total</span>
-          <span>{formatPrice(total)}</span>
-        </div>
+      </div>
+
+      <div className="border-t border-[#EEEEEC]" />
+
+      <div className="flex justify-between items-baseline">
+        <span
+          className="font-black uppercase tracking-tight"
+          style={{ fontFamily: "var(--font-hero)" }}
+        >
+          Total
+        </span>
+        <span
+          className="font-bold text-xl"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          {formatPrice(total)}
+        </span>
       </div>
     </div>
   );
 }
+
+// ── Shared field styles ────────────────────────────────────────
+const inputClass =
+  "w-full border-b border-[#EEEEEC] px-0 py-3 text-sm bg-transparent outline-none focus:border-black transition-colors placeholder:text-[#B8A99A]";
+const labelClass = "block eyebrow text-[#B8A99A] text-[9px] mb-1";
+const errorClass = "text-red-500 text-xs mt-1";
 
 // ── Main component ─────────────────────────────────────────────
 export function CheckoutPageClient() {
@@ -200,22 +228,23 @@ export function CheckoutPageClient() {
 
   if (cart.items.length === 0 && checkout.step !== 5) {
     return (
-      <div className="shopco-container py-20 text-center space-y-4">
-        <p className="text-gray-500">Your cart is empty.</p>
+      <div className="shopco-container py-24 text-center space-y-6">
+        <p className="eyebrow text-[#B8A99A]">Checkout</p>
+        <p
+          className="text-3xl font-black uppercase tracking-tight"
+          style={{ fontFamily: "var(--font-hero)" }}
+        >
+          Your bag is empty
+        </p>
         <Link
           href="/shop"
-          className="inline-block bg-black text-white px-8 py-3 rounded-full text-sm"
+          className="inline-block eyebrow bg-black text-white px-10 py-4 hover:bg-[#292929] transition-colors"
         >
           Shop Now
         </Link>
       </div>
     );
   }
-
-  const inputClass =
-    "w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-black transition-colors";
-  const labelClass = "block text-sm font-medium mb-1.5";
-  const errorClass = "text-red-500 text-xs mt-1";
 
   function handlePlaceOrder() {
     const addr = checkout.shippingAddress as ShippingFormData;
@@ -252,8 +281,17 @@ export function CheckoutPageClient() {
   const cartShipping = cart.shipping;
 
   return (
-    <div className="shopco-container py-10">
-      <div className="flex flex-col lg:flex-row gap-10">
+    <div className="shopco-container py-10 pb-20">
+      {/* Page heading */}
+      <p className="eyebrow text-[#B8A99A] mb-2">Checkout</p>
+      <h1
+        className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-10"
+        style={{ fontFamily: "var(--font-hero)" }}
+      >
+        Complete Order
+      </h1>
+
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
         {/* ── Left: Form steps ─────────────────────────────── */}
         <div className="flex-1 min-w-0">
           <StepIndicator current={checkout.step} />
@@ -265,9 +303,12 @@ export function CheckoutPageClient() {
                 checkout.setContactInfo(data);
                 checkout.setStep(2);
               })}
-              className="space-y-5"
+              className="space-y-8"
             >
-              <h2 className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+              <h2
+                className="text-xl font-black uppercase tracking-tight"
+                style={{ fontFamily: "var(--font-hero)" }}
+              >
                 Contact Information
               </h2>
               <div>
@@ -296,9 +337,9 @@ export function CheckoutPageClient() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-black text-white py-3.5 rounded-full font-medium text-sm hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
+                className="w-full eyebrow bg-black text-white py-4 hover:bg-[#292929] transition-colors"
               >
-                Continue <ChevronRight size={16} />
+                Continue
               </button>
             </form>
           )}
@@ -310,12 +351,15 @@ export function CheckoutPageClient() {
                 checkout.setShippingAddress(data);
                 checkout.setStep(3);
               })}
-              className="space-y-5"
+              className="space-y-8"
             >
-              <h2 className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+              <h2
+                className="text-xl font-black uppercase tracking-tight"
+                style={{ fontFamily: "var(--font-hero)" }}
+              >
                 Shipping Address
               </h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-6">
                 <div>
                   <label className={labelClass}>First name</label>
                   <input className={inputClass} {...shippingForm.register("firstName")} />
@@ -333,12 +377,16 @@ export function CheckoutPageClient() {
               </div>
               <div>
                 <label className={labelClass}>Address</label>
-                <input className={inputClass} placeholder="123 Main St" {...shippingForm.register("address")} />
+                <input
+                  className={inputClass}
+                  placeholder="123 Main St"
+                  {...shippingForm.register("address")}
+                />
                 {shippingForm.formState.errors.address && (
                   <p className={errorClass}>{shippingForm.formState.errors.address.message}</p>
                 )}
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-6">
                 <div>
                   <label className={labelClass}>City</label>
                   <input className={inputClass} {...shippingForm.register("city")} />
@@ -354,7 +402,7 @@ export function CheckoutPageClient() {
                   )}
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-6">
                 <div>
                   <label className={labelClass}>ZIP / Postal code</label>
                   <input className={inputClass} {...shippingForm.register("zip")} />
@@ -370,19 +418,19 @@ export function CheckoutPageClient() {
                   )}
                 </div>
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <button
                   type="button"
                   onClick={() => checkout.setStep(1)}
-                  className="flex-1 border border-gray-300 py-3.5 rounded-full font-medium text-sm hover:border-black transition-colors"
+                  className="flex-1 eyebrow border border-[#EEEEEC] py-4 hover:border-black transition-colors"
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-black text-white py-3.5 rounded-full font-medium text-sm hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 eyebrow bg-black text-white py-4 hover:bg-[#292929] transition-colors"
                 >
-                  Continue <ChevronRight size={16} />
+                  Continue
                 </button>
               </div>
             </form>
@@ -390,63 +438,83 @@ export function CheckoutPageClient() {
 
           {/* Step 3: Delivery */}
           {checkout.step === 3 && (
-            <div className="space-y-5">
-              <h2 className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="space-y-8">
+              <h2
+                className="text-xl font-black uppercase tracking-tight"
+                style={{ fontFamily: "var(--font-hero)" }}
+              >
                 Delivery Method
               </h2>
-              {(
-                [
-                  { id: "standard", label: "Standard", desc: "5–7 business days", price: cartShipping === 0 ? "FREE" : formatPrice(cartShipping) },
-                  { id: "express", label: "Express", desc: "2–3 business days", price: formatPrice(25) },
-                  { id: "overnight", label: "Overnight", desc: "Next business day", price: formatPrice(45) },
-                ] as { id: DeliveryMethod; label: string; desc: string; price: string }[]
-              ).map((opt) => (
-                <button
-                  key={opt.id}
-                  type="button"
-                  onClick={() => checkout.setDeliveryMethod(opt.id)}
-                  className={cn(
-                    "w-full flex items-center justify-between p-4 rounded-xl border-2 transition-all text-left",
-                    checkout.deliveryMethod === opt.id
-                      ? "border-black bg-gray-50"
-                      : "border-gray-200 hover:border-gray-400"
-                  )}
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={cn(
-                        "w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all",
-                        checkout.deliveryMethod === opt.id
-                          ? "border-black bg-black"
-                          : "border-gray-300"
-                      )}
+              <div className="space-y-3">
+                {(
+                  [
+                    {
+                      id: "standard",
+                      label: "Standard",
+                      desc: "5–7 business days",
+                      price: cartShipping === 0 ? "FREE" : formatPrice(cartShipping),
+                    },
+                    { id: "express", label: "Express", desc: "2–3 business days", price: formatPrice(25) },
+                    { id: "overnight", label: "Overnight", desc: "Next business day", price: formatPrice(45) },
+                  ] as { id: DeliveryMethod; label: string; desc: string; price: string }[]
+                ).map((opt) => (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => checkout.setDeliveryMethod(opt.id)}
+                    className={cn(
+                      "w-full flex items-center justify-between p-5 border transition-all text-left",
+                      checkout.deliveryMethod === opt.id
+                        ? "border-black bg-[#F7F6F3]"
+                        : "border-[#EEEEEC] hover:border-[#B8A99A]"
+                    )}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div
+                        className={cn(
+                          "w-4 h-4 border-2 flex items-center justify-center transition-all shrink-0",
+                          checkout.deliveryMethod === opt.id
+                            ? "border-black bg-black"
+                            : "border-[#EEEEEC]"
+                        )}
+                      >
+                        {checkout.deliveryMethod === opt.id && (
+                          <div className="w-1.5 h-1.5 bg-white" />
+                        )}
+                      </div>
+                      <div>
+                        <p
+                          className="font-semibold text-sm uppercase tracking-tight"
+                          style={{ fontFamily: "var(--font-display)" }}
+                        >
+                          {opt.label}
+                        </p>
+                        <p className="eyebrow text-[#B8A99A] text-[9px] mt-0.5">{opt.desc}</p>
+                      </div>
+                    </div>
+                    <span
+                      className="font-bold text-sm"
+                      style={{ fontFamily: "var(--font-display)" }}
                     >
-                      {checkout.deliveryMethod === opt.id && (
-                        <div className="w-2 h-2 bg-white rounded-full" />
-                      )}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm">{opt.label}</p>
-                      <p className="text-xs text-gray-500">{opt.desc}</p>
-                    </div>
-                  </div>
-                  <span className="font-bold text-sm">{opt.price}</span>
-                </button>
-              ))}
-              <div className="flex gap-3">
+                      {opt.price}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <div className="flex gap-4">
                 <button
                   type="button"
                   onClick={() => checkout.setStep(2)}
-                  className="flex-1 border border-gray-300 py-3.5 rounded-full font-medium text-sm hover:border-black transition-colors"
+                  className="flex-1 eyebrow border border-[#EEEEEC] py-4 hover:border-black transition-colors"
                 >
                   Back
                 </button>
                 <button
                   type="button"
                   onClick={() => checkout.setStep(4)}
-                  className="flex-1 bg-black text-white py-3.5 rounded-full font-medium text-sm hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 eyebrow bg-black text-white py-4 hover:bg-[#292929] transition-colors"
                 >
-                  Continue <ChevronRight size={16} />
+                  Continue
                 </button>
               </div>
             </div>
@@ -454,117 +522,121 @@ export function CheckoutPageClient() {
 
           {/* Step 4: Payment */}
           {checkout.step === 4 && (
-            <div className="space-y-5">
-              <h2 className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="space-y-8">
+              <h2
+                className="text-xl font-black uppercase tracking-tight"
+                style={{ fontFamily: "var(--font-hero)" }}
+              >
                 Payment Method
               </h2>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-xl px-4 py-3 flex items-start gap-2 text-sm text-yellow-800">
-                <AlertTriangle size={16} className="shrink-0 mt-0.5" />
-                <span>
+              <div className="border border-[#EEEEEC] bg-[#F7F6F3] px-5 py-4 flex items-start gap-3 text-sm">
+                <AlertTriangle size={14} strokeWidth={1.5} className="shrink-0 mt-0.5 text-[#B8A99A]" />
+                <span className="text-[#292929] text-xs leading-relaxed">
                   <strong>Demo only</strong> — no real payment is processed. Do not enter real card details.
                 </span>
               </div>
 
-              {(
-                [
-                  { id: "card", label: "Credit / Debit Card" },
-                  { id: "paypal", label: "PayPal" },
-                  { id: "apple_pay", label: "Apple Pay" },
-                ] as { id: PaymentMethod; label: string }[]
-              ).map((opt) => (
-                <div key={opt.id}>
-                  <button
-                    type="button"
-                    onClick={() => checkout.setPaymentMethod(opt.id)}
-                    className={cn(
-                      "w-full flex items-center gap-3 p-4 rounded-xl border-2 transition-all text-left",
-                      checkout.paymentMethod === opt.id
-                        ? "border-black bg-gray-50"
-                        : "border-gray-200 hover:border-gray-400"
-                    )}
-                  >
-                    <div
+              <div className="space-y-3">
+                {(
+                  [
+                    { id: "card", label: "Credit / Debit Card" },
+                    { id: "paypal", label: "PayPal" },
+                    { id: "apple_pay", label: "Apple Pay" },
+                  ] as { id: PaymentMethod; label: string }[]
+                ).map((opt) => (
+                  <div key={opt.id}>
+                    <button
+                      type="button"
+                      onClick={() => checkout.setPaymentMethod(opt.id)}
                       className={cn(
-                        "w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all shrink-0",
+                        "w-full flex items-center gap-4 p-5 border transition-all text-left",
                         checkout.paymentMethod === opt.id
-                          ? "border-black bg-black"
-                          : "border-gray-300"
+                          ? "border-black bg-[#F7F6F3]"
+                          : "border-[#EEEEEC] hover:border-[#B8A99A]"
                       )}
                     >
-                      {checkout.paymentMethod === opt.id && (
-                        <div className="w-2 h-2 bg-white rounded-full" />
-                      )}
-                    </div>
-                    <span className="font-semibold text-sm">{opt.label}</span>
-                  </button>
-
-                  {checkout.paymentMethod === "card" && opt.id === "card" && (
-                    <div className="mt-3 p-4 border border-gray-200 rounded-xl space-y-3 bg-gray-50">
-                      <div>
-                        <label className={labelClass}>Card number (demo)</label>
-                        <input
-                          type="text"
-                          placeholder="4242 4242 4242 4242"
-                          maxLength={19}
-                          value={demoCard.number}
-                          onChange={(e) =>
-                            setDemoCard((d) => ({ ...d, number: e.target.value }))
-                          }
-                          className={inputClass}
-                        />
+                      <div
+                        className={cn(
+                          "w-4 h-4 border-2 flex items-center justify-center transition-all shrink-0",
+                          checkout.paymentMethod === opt.id
+                            ? "border-black bg-black"
+                            : "border-[#EEEEEC]"
+                        )}
+                      >
+                        {checkout.paymentMethod === opt.id && (
+                          <div className="w-1.5 h-1.5 bg-white" />
+                        )}
                       </div>
-                      <div className="grid grid-cols-2 gap-3">
+                      <span
+                        className="font-semibold text-sm uppercase tracking-tight"
+                        style={{ fontFamily: "var(--font-display)" }}
+                      >
+                        {opt.label}
+                      </span>
+                    </button>
+
+                    {checkout.paymentMethod === "card" && opt.id === "card" && (
+                      <div className="mt-3 p-5 border border-[#EEEEEC] bg-[#F7F6F3] space-y-6">
                         <div>
-                          <label className={labelClass}>Expiry (demo)</label>
+                          <label className={labelClass}>Card number (demo)</label>
                           <input
                             type="text"
-                            placeholder="MM/YY"
-                            maxLength={5}
-                            value={demoCard.expiry}
-                            onChange={(e) =>
-                              setDemoCard((d) => ({ ...d, expiry: e.target.value }))
-                            }
+                            placeholder="4242 4242 4242 4242"
+                            maxLength={19}
+                            value={demoCard.number}
+                            onChange={(e) => setDemoCard((d) => ({ ...d, number: e.target.value }))}
                             className={inputClass}
                           />
                         </div>
-                        <div>
-                          <label className={labelClass}>CVV (demo)</label>
-                          <input
-                            type="text"
-                            placeholder="123"
-                            maxLength={4}
-                            value={demoCard.cvv}
-                            onChange={(e) =>
-                              setDemoCard((d) => ({ ...d, cvv: e.target.value }))
-                            }
-                            className={inputClass}
-                          />
+                        <div className="grid grid-cols-2 gap-6">
+                          <div>
+                            <label className={labelClass}>Expiry (demo)</label>
+                            <input
+                              type="text"
+                              placeholder="MM/YY"
+                              maxLength={5}
+                              value={demoCard.expiry}
+                              onChange={(e) => setDemoCard((d) => ({ ...d, expiry: e.target.value }))}
+                              className={inputClass}
+                            />
+                          </div>
+                          <div>
+                            <label className={labelClass}>CVV (demo)</label>
+                            <input
+                              type="text"
+                              placeholder="123"
+                              maxLength={4}
+                              value={demoCard.cvv}
+                              onChange={(e) => setDemoCard((d) => ({ ...d, cvv: e.target.value }))}
+                              className={inputClass}
+                            />
+                          </div>
                         </div>
+                        {cardError && <p className={errorClass}>{cardError}</p>}
                       </div>
-                      {cardError && <p className={errorClass}>{cardError}</p>}
-                    </div>
-                  )}
+                    )}
 
-                  {checkout.paymentMethod === "paypal" && opt.id === "paypal" && (
-                    <p className="mt-2 text-sm text-gray-500 px-4">
-                      You&apos;ll be redirected to PayPal to complete your payment (demo).
-                    </p>
-                  )}
+                    {checkout.paymentMethod === "paypal" && opt.id === "paypal" && (
+                      <p className="mt-2 text-xs text-[#B8A99A] px-5">
+                        You&apos;ll be redirected to PayPal to complete your payment (demo).
+                      </p>
+                    )}
 
-                  {checkout.paymentMethod === "apple_pay" && opt.id === "apple_pay" && (
-                    <p className="mt-2 text-sm text-gray-500 px-4">
-                      Apple Pay (demo) — no real payment will occur.
-                    </p>
-                  )}
-                </div>
-              ))}
+                    {checkout.paymentMethod === "apple_pay" && opt.id === "apple_pay" && (
+                      <p className="mt-2 text-xs text-[#B8A99A] px-5">
+                        Apple Pay (demo) — no real payment will occur.
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <button
                   type="button"
                   onClick={() => checkout.setStep(3)}
-                  className="flex-1 border border-gray-300 py-3.5 rounded-full font-medium text-sm hover:border-black transition-colors"
+                  className="flex-1 eyebrow border border-[#EEEEEC] py-4 hover:border-black transition-colors"
                 >
                   Back
                 </button>
@@ -580,9 +652,9 @@ export function CheckoutPageClient() {
                     setCardError("");
                     checkout.setStep(5);
                   }}
-                  className="flex-1 bg-black text-white py-3.5 rounded-full font-medium text-sm hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 eyebrow bg-black text-white py-4 hover:bg-[#292929] transition-colors"
                 >
-                  Continue <ChevronRight size={16} />
+                  Continue
                 </button>
               </div>
             </div>
@@ -591,30 +663,43 @@ export function CheckoutPageClient() {
           {/* Step 5: Review */}
           {checkout.step === 5 && (
             <div className="space-y-6">
-              <h2 className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
+              <h2
+                className="text-xl font-black uppercase tracking-tight"
+                style={{ fontFamily: "var(--font-hero)" }}
+              >
                 Review Your Order
               </h2>
 
               {/* Contact */}
-              <div className="border border-gray-200 rounded-xl p-4 space-y-1">
-                <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-semibold text-sm">Contact</h3>
-                  <button onClick={() => checkout.setStep(1)} className="text-xs text-gray-400 hover:text-black">Edit</button>
+              <div className="border border-[#EEEEEC] p-5">
+                <div className="flex justify-between items-center mb-3">
+                  <p className="eyebrow text-[#292929]">Contact</p>
+                  <button
+                    onClick={() => checkout.setStep(1)}
+                    className="eyebrow text-[#B8A99A] hover:text-black transition-colors text-[9px]"
+                  >
+                    Edit
+                  </button>
                 </div>
-                <p className="text-sm text-gray-600">{(checkout.contactInfo as { email?: string }).email}</p>
-                <p className="text-sm text-gray-600">{(checkout.contactInfo as { phone?: string }).phone}</p>
+                <p className="text-sm text-[#292929]">{(checkout.contactInfo as { email?: string }).email}</p>
+                <p className="text-sm text-[#B8A99A]">{(checkout.contactInfo as { phone?: string }).phone}</p>
               </div>
 
               {/* Shipping */}
-              <div className="border border-gray-200 rounded-xl p-4 space-y-1">
-                <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-semibold text-sm">Shipping Address</h3>
-                  <button onClick={() => checkout.setStep(2)} className="text-xs text-gray-400 hover:text-black">Edit</button>
+              <div className="border border-[#EEEEEC] p-5">
+                <div className="flex justify-between items-center mb-3">
+                  <p className="eyebrow text-[#292929]">Shipping Address</p>
+                  <button
+                    onClick={() => checkout.setStep(2)}
+                    className="eyebrow text-[#B8A99A] hover:text-black transition-colors text-[9px]"
+                  >
+                    Edit
+                  </button>
                 </div>
                 {(() => {
                   const a = checkout.shippingAddress as ShippingFormData;
                   return (
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-[#292929] leading-relaxed">
                       {a.firstName} {a.lastName}<br />
                       {a.address}<br />
                       {a.city}, {a.state} {a.zip}<br />
@@ -625,42 +710,60 @@ export function CheckoutPageClient() {
               </div>
 
               {/* Delivery */}
-              <div className="border border-gray-200 rounded-xl p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-semibold text-sm">Delivery</h3>
-                  <button onClick={() => checkout.setStep(3)} className="text-xs text-gray-400 hover:text-black">Edit</button>
+              <div className="border border-[#EEEEEC] p-5">
+                <div className="flex justify-between items-center mb-3">
+                  <p className="eyebrow text-[#292929]">Delivery</p>
+                  <button
+                    onClick={() => checkout.setStep(3)}
+                    className="eyebrow text-[#B8A99A] hover:text-black transition-colors text-[9px]"
+                  >
+                    Edit
+                  </button>
                 </div>
-                <p className="text-sm text-gray-600">
-                  {deliveryLabel(checkout.deliveryMethod)} — {formatPrice(deliveryCost(checkout.deliveryMethod, cart.shipping))}
+                <p className="text-sm text-[#292929]">
+                  {deliveryLabel(checkout.deliveryMethod)}{" "}
+                  <span className="text-[#B8A99A]">
+                    — {formatPrice(deliveryCost(checkout.deliveryMethod, cart.shipping))}
+                  </span>
                 </p>
               </div>
 
               {/* Payment */}
-              <div className="border border-gray-200 rounded-xl p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-semibold text-sm">Payment</h3>
-                  <button onClick={() => checkout.setStep(4)} className="text-xs text-gray-400 hover:text-black">Edit</button>
+              <div className="border border-[#EEEEEC] p-5">
+                <div className="flex justify-between items-center mb-3">
+                  <p className="eyebrow text-[#292929]">Payment</p>
+                  <button
+                    onClick={() => checkout.setStep(4)}
+                    className="eyebrow text-[#B8A99A] hover:text-black transition-colors text-[9px]"
+                  >
+                    Edit
+                  </button>
                 </div>
-                <p className="text-sm text-gray-600 capitalize">{checkout.paymentMethod.replace("_", " ")} (demo)</p>
+                <p className="text-sm text-[#292929] capitalize">
+                  {checkout.paymentMethod.replace("_", " ")}{" "}
+                  <span className="text-[#B8A99A]">(demo)</span>
+                </p>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-xl px-4 py-3 text-sm text-yellow-800 flex items-start gap-2">
-                <AlertTriangle size={16} className="shrink-0 mt-0.5" />
-                <span>This is a demo order. No real payment will be charged.</span>
+              <div className="border border-[#EEEEEC] bg-[#F7F6F3] px-5 py-4 flex items-start gap-3">
+                <AlertTriangle size={14} strokeWidth={1.5} className="shrink-0 mt-0.5 text-[#B8A99A]" />
+                <span className="text-xs text-[#292929] leading-relaxed">
+                  This is a demo order. No real payment will be charged.
+                </span>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <button
                   type="button"
                   onClick={() => checkout.setStep(4)}
-                  className="flex-1 border border-gray-300 py-3.5 rounded-full font-medium text-sm hover:border-black transition-colors"
+                  className="flex-1 eyebrow border border-[#EEEEEC] py-4 hover:border-black transition-colors"
                 >
                   Back
                 </button>
                 <button
                   type="button"
                   onClick={handlePlaceOrder}
-                  className="flex-1 bg-black text-white py-3.5 rounded-full font-bold text-sm hover:bg-gray-900 transition-colors"
+                  className="flex-1 eyebrow bg-black text-white py-4 hover:bg-[#292929] transition-colors"
                 >
                   Place Order
                 </button>
@@ -670,7 +773,7 @@ export function CheckoutPageClient() {
         </div>
 
         {/* ── Right: Order summary ──────────────────────────── */}
-        <div className="lg:w-[360px] shrink-0">
+        <div className="lg:w-[380px] shrink-0">
           <OrderSummary />
         </div>
       </div>
