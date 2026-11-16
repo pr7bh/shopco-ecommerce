@@ -1,7 +1,10 @@
 import type { Product, Review } from "@/types";
+import { WOMEN_PRODUCTS } from "./products-women";
+import { MEN_PRODUCTS } from "./products-men";
+import { ACCESSORIES_PRODUCTS } from "./products-accessories";
 
-// ─── Full product catalog ────────────────────────────────────────────
-export const ALL_PRODUCTS: Product[] = [
+// ─── Core products (original 12) ────────────────────────────────────
+const CORE_PRODUCTS: Product[] = [
   // ── New Arrivals (from mock-data) ──────────────────────────────
   {
     id: "na-1",
@@ -280,6 +283,14 @@ export const ALL_PRODUCTS: Product[] = [
   },
 ];
 
+// ─── Full product catalog ────────────────────────────────────────────
+export const ALL_PRODUCTS: Product[] = [
+  ...CORE_PRODUCTS,
+  ...WOMEN_PRODUCTS,
+  ...MEN_PRODUCTS,
+  ...ACCESSORIES_PRODUCTS,
+];
+
 // ─── Per-product reviews ─────────────────────────────────────────────
 export const PRODUCT_REVIEWS: Record<string, Review[]> = {
   "pl-1": [
@@ -396,6 +407,8 @@ interface FilterOptions {
   sizes?: string[];
   sort?: string;
   q?: string;
+  gender?: string;
+  subcategory?: string;
 }
 
 export function filterAndSort(
@@ -403,6 +416,16 @@ export function filterAndSort(
   filters: FilterOptions
 ): Product[] {
   let result = [...products];
+
+  // Gender
+  if (filters.gender) {
+    result = result.filter((p) => p.gender === filters.gender);
+  }
+
+  // Subcategory
+  if (filters.subcategory) {
+    result = result.filter((p) => p.subcategory === filters.subcategory);
+  }
 
   // Category
   if (filters.category) {

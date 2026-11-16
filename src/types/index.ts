@@ -8,6 +8,8 @@ export interface Product {
   originalPrice?: number;
   images: string[];
   category: ProductCategory;
+  subcategory?: string;
+  gender?: "women" | "men" | "kids" | "unisex";
   tags: string[];
   rating: number;
   reviewCount: number;
@@ -16,6 +18,7 @@ export interface Product {
   colors?: Color[];
   isNew?: boolean;
   isSale?: boolean;
+  isBestseller?: boolean;
   isFeatured?: boolean;
   model3dUrl?: string;
 }
@@ -26,7 +29,14 @@ export type ProductCategory =
   | "party"
   | "gym"
   | "new-arrivals"
-  | "sale";
+  | "sale"
+  | "tops"
+  | "bottoms"
+  | "dresses"
+  | "outerwear"
+  | "knitwear"
+  | "activewear"
+  | "accessories";
 
 export type Size = "XS" | "S" | "M" | "L" | "XL" | "XXL";
 
@@ -121,4 +131,6 @@ export interface ProductFilters {
   maxPrice?: number;
   sort?: SortOption;
   search?: string;
+  gender?: "women" | "men" | "kids" | "unisex";
+  subcategory?: string;
 }
