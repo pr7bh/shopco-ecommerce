@@ -188,8 +188,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["beanie", "wool", "hat", "winter"],
     rating: 4.5,
@@ -216,8 +216,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1134166/pexels-photo-1134166.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["bucket hat", "hat", "casual", "summer"],
     rating: 4.1,
@@ -382,8 +382,8 @@ export const ACCESSORIES_PRODUCTS: Product[] = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5693889/pexels-photo-5693889.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5693889/pexels-photo-5693889.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     tags: ["scarf", "silk", "accessory", "minimal"],
     rating: 4.3,

@@ -14,8 +14,8 @@ const CORE_PRODUCTS: Product[] = [
       "A clean minimalist tee with subtle tape detail on the sleeves. Crafted from 100% combed cotton for all-day comfort.",
     price: 120,
     images: [
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     subcategory: "basic-tshirts",
@@ -40,8 +40,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 240,
     originalPrice: 260,
     images: [
-      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     subcategory: "jeans",
@@ -66,8 +66,8 @@ const CORE_PRODUCTS: Product[] = [
       "A timeless checkered pattern shirt in a relaxed fit. Perfect for casual outings or layering.",
     price: 180,
     images: [
-      "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     subcategory: "shirts",
@@ -92,8 +92,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 130,
     originalPrice: 160,
     images: [
-      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     subcategory: "basic-tshirts",
@@ -121,8 +121,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 212,
     originalPrice: 232,
     images: [
-      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     subcategory: "shirts",
@@ -147,8 +147,8 @@ const CORE_PRODUCTS: Product[] = [
       "A statement graphic tee featuring bold typography. Printed on premium heavyweight cotton.",
     price: 145,
     images: [
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     category: "casual",
     subcategory: "basic-tshirts",
@@ -172,8 +172,8 @@ const CORE_PRODUCTS: Product[] = [
       "Relaxed-cut Bermuda shorts in a durable twill fabric. Ideal for warm days and active lifestyles.",
     price: 80,
     images: [
-      "https://images.pexels.com/photos/2770735/pexels-photo-2770735.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2770735/pexels-photo-2770735.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "gym",
     subcategory: "shorts",
@@ -197,8 +197,8 @@ const CORE_PRODUCTS: Product[] = [
       "An expertly faded finish on our signature skinny jean cut. Distressed at the knees for an effortless look.",
     price: 210,
     images: [
-      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     subcategory: "jeans",
@@ -225,8 +225,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 260,
     originalPrice: 300,
     images: [
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     category: "casual",
     subcategory: "basic-tshirts",
@@ -253,8 +253,8 @@ const CORE_PRODUCTS: Product[] = [
     price: 212,
     originalPrice: 242,
     images: [
-      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1844012/pexels-photo-1844012.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "formal",
     subcategory: "shirts",
@@ -278,8 +278,8 @@ const CORE_PRODUCTS: Product[] = [
       "A vivid gradient print on premium cotton jersey. Eye-catching and comfortable for everyday wear.",
     price: 145,
     images: [
-      "https://images.pexels.com/photos/2228719/pexels-photo-2228719.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2228719/pexels-photo-2228719.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "casual",
     subcategory: "basic-tshirts",
@@ -299,8 +299,8 @@ const CORE_PRODUCTS: Product[] = [
       "Classic polo with elegant tipping details. A versatile piece that transitions seamlessly from casual to smart-casual.",
     price: 180,
     images: [
-      "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1587927/pexels-photo-1587927.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     category: "formal",
     subcategory: "shirts",

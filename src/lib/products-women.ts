@@ -16,8 +16,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.3,
     reviewCount: 128,
@@ -44,8 +44,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.5,
     reviewCount: 214,
@@ -73,8 +73,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.2,
     reviewCount: 97,
@@ -101,8 +101,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Cream", hex: "#f8f4ee" },
     ],
     images: [
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 183,
@@ -129,8 +129,8 @@ export const WOMEN_PRODUCTS = [
       { name: "White", hex: "#FFFFFF" },
     ],
     images: [
-      "https://images.pexels.com/photos/1484776/pexels-photo-1484776.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1484776/pexels-photo-1484776.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.1,
     reviewCount: 72,
@@ -158,8 +158,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.6,
     reviewCount: 310,
@@ -185,8 +185,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.0,
     reviewCount: 56,
@@ -213,8 +213,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Cream", hex: "#f8f4ee" },
     ],
     images: [
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.7,
     reviewCount: 441,
@@ -413,8 +413,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.5,
     reviewCount: 203,
@@ -441,8 +441,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Light Blue", hex: "#a8c4d8" },
     ],
     images: [
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 157,
@@ -468,8 +468,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Light Blue", hex: "#a8c4d8" },
     ],
     images: [
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.3,
     reviewCount: 112,
@@ -496,8 +496,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/4350097/pexels-photo-4350097.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4350097/pexels-photo-4350097.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.2,
     reviewCount: 88,
@@ -524,8 +524,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311388/pexels-photo-6311388.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311388/pexels-photo-6311388.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 136,
@@ -552,8 +552,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.6,
     reviewCount: 174,
@@ -582,8 +582,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Camel", hex: "#c19a6b" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210343/pexels-photo-4210343.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210343/pexels-photo-4210343.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.6,
     reviewCount: 298,
@@ -611,8 +611,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311652/pexels-photo-6311652.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311652/pexels-photo-6311652.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5693889/pexels-photo-5693889.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/5693889/pexels-photo-5693889.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.7,
     reviewCount: 421,
@@ -639,8 +639,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Burgundy", hex: "#722f37" },
     ],
     images: [
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210339/pexels-photo-4210339.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210339/pexels-photo-4210339.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.8,
     reviewCount: 164,
@@ -667,8 +667,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Forest", hex: "#2d5a27" },
     ],
     images: [
-      "https://images.pexels.com/photos/4559608/pexels-photo-4559608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4559608/pexels-photo-4559608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210340/pexels-photo-4210340.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210340/pexels-photo-4210340.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.5,
     reviewCount: 237,
@@ -696,8 +696,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210341/pexels-photo-4210341.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210341/pexels-photo-4210341.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.3,
     reviewCount: 102,
@@ -724,8 +724,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Chocolate", hex: "#4a2c1a" },
     ],
     images: [
-      "https://images.pexels.com/photos/4203083/pexels-photo-4203083.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4203083/pexels-photo-4203083.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210344/pexels-photo-4210344.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210344/pexels-photo-4210344.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.6,
     reviewCount: 318,
@@ -755,8 +755,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/4559608/pexels-photo-4559608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4559608/pexels-photo-4559608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311651/pexels-photo-6311651.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311651/pexels-photo-6311651.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.5,
     reviewCount: 345,
@@ -783,8 +783,8 @@ export const WOMEN_PRODUCTS = [
       { name: "White", hex: "#FFFFFF" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 128,
@@ -811,8 +811,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/4203083/pexels-photo-4203083.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4203083/pexels-photo-4203083.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.6,
     reviewCount: 412,
@@ -868,8 +868,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 145,
@@ -898,8 +898,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.6,
     reviewCount: 283,
@@ -927,8 +927,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Burgundy", hex: "#722f37" },
     ],
     images: [
-      "https://images.pexels.com/photos/1689731/pexels-photo-1689731.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1689731/pexels-photo-1689731.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.3,
     reviewCount: 174,
@@ -954,8 +954,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/3771832/pexels-photo-3771832.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/3771832/pexels-photo-3771832.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.5,
     reviewCount: 141,
@@ -982,8 +982,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Camel", hex: "#c19a6b" },
     ],
     images: [
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 198,
@@ -1011,8 +1011,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.7,
     reviewCount: 256,
@@ -1039,8 +1039,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Cream", hex: "#f8f4ee" },
     ],
     images: [
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.5,
     reviewCount: 183,
@@ -1067,8 +1067,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 112,
@@ -1095,8 +1095,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Light Blue", hex: "#a8c4d8" },
     ],
     images: [
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.2,
     reviewCount: 94,
@@ -1125,8 +1125,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.5,
     reviewCount: 387,
@@ -1154,8 +1154,8 @@ export const WOMEN_PRODUCTS = [
       { name: "White", hex: "#FFFFFF" },
     ],
     images: [
-      "https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 219,
@@ -1181,8 +1181,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/1058683/pexels-photo-1058683.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/1058683/pexels-photo-1058683.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.3,
     reviewCount: 163,
@@ -1208,8 +1208,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Denim Blue", hex: "#4a7fa5" },
     ],
     images: [
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.5,
     reviewCount: 298,
@@ -1236,8 +1236,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9558567/pexels-photo-9558567.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/9558567/pexels-photo-9558567.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.3,
     reviewCount: 87,
@@ -1266,8 +1266,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Camel", hex: "#c19a6b" },
     ],
     images: [
-      "https://images.pexels.com/photos/4350097/pexels-photo-4350097.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4350097/pexels-photo-4350097.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9558568/pexels-photo-9558568.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/9558568/pexels-photo-9558568.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.6,
     reviewCount: 254,
@@ -1295,8 +1295,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9558569/pexels-photo-9558569.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/9558569/pexels-photo-9558569.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.4,
     reviewCount: 136,
@@ -1323,8 +1323,8 @@ export const WOMEN_PRODUCTS = [
       { name: "White", hex: "#FFFFFF" },
     ],
     images: [
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.5,
     reviewCount: 178,
@@ -1351,8 +1351,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Denim Blue", hex: "#4a7fa5" },
     ],
     images: [
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1769374/pexels-photo-1769374.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.3,
     reviewCount: 203,
@@ -1380,8 +1380,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Burgundy", hex: "#722f37" },
     ],
     images: [
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1375736/pexels-photo-1375736.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
+      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
     ],
     rating: 4.6,
     reviewCount: 161,
@@ -1411,8 +1411,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.8,
     reviewCount: 198,
@@ -1439,8 +1439,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.5,
     reviewCount: 143,
@@ -1468,8 +1468,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4262010/pexels-photo-4262010.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1515664069236-68a74c369d97?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1515664069236-68a74c369d97?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.7,
     reviewCount: 267,
@@ -1496,8 +1496,8 @@ export const WOMEN_PRODUCTS = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/972995/pexels-photo-972995.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=80&crop=entropy"
     ],
     rating: 4.6,
     reviewCount: 189,
