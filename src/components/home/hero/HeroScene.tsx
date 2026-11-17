@@ -145,6 +145,8 @@ function Layer({
       depthWrite: false,
     });
     material.current = imageMat;
+    // A new material has no texture yet, even if this layer showed one before (refs survive <Activity>).
+    shown.current = -1;
     if (mesh.current) mesh.current.material = imageMat;
     if (shadow.current) shadow.current.material = shadowMat;
     return () => {
@@ -267,9 +269,18 @@ export function HeroScene({ index, active, pointer, onReady, onError }: HeroScen
   const loaded = useRef(0);
   const readyFired = useRef(false);
   const onReadyRef = useRef(onReady);
+  const alive = useRef(false);
   useEffect(() => {
     onReadyRef.current = onReady;
   }, [onReady]);
+  useEffect(() => {
+    alive.current = true;
+    loaded.current = 0;
+    readyFired.current = false;
+    return () => {
+      alive.current = false;
+    };
+  }, []);
 
   const handleLoaded = useCallback(() => {
     loaded.current += 1;
@@ -292,7 +303,8 @@ export function HeroScene({ index, active, pointer, onReady, onError }: HeroScen
         gl.setClearColor(0x000000, 0);
         gl.domElement.addEventListener("webglcontextlost", (e) => {
           e.preventDefault();
-          onError();
+          // Unmounting releases the context on purpose; only a loss while mounted is a real failure.
+          if (alive.current) onError();
         });
       }}
       aria-hidden

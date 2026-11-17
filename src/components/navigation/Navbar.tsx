@@ -84,12 +84,12 @@ export function Navbar() {
               <button
                 aria-label="Open menu"
                 onClick={() => setMobileOpen(true)}
-                className={cn(iconBtn, "md:hidden -ml-2.5")}
+                className={cn(iconBtn, "lg:hidden -ml-2.5")}
               >
                 <Menu size={22} strokeWidth={1.5} />
               </button>
 
-              <nav aria-label="Main" className="hidden md:flex items-stretch h-full gap-7">
+              <nav aria-label="Main" className="hidden lg:flex items-stretch h-full gap-7">
                 {NAV_LINKS.map((link) => {
                   const mega = "mega" in link ? link.mega : null;
                   const active = mega !== null && megaOpen === mega;

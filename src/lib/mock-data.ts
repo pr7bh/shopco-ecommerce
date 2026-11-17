@@ -150,7 +150,7 @@ export const TESTIMONIALS: Review[] = [
     content:
       "I'm blown away by the quality and style of the clothes I received from Shopco. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
     createdAt: "2024-01-15",
-    verified: true,
+    verified: false,
   },
   {
     id: "r2",
@@ -161,7 +161,7 @@ export const TESTIMONIALS: Review[] = [
     content:
       "Finding clothes that align with my personal style used to be a challenge until I discovered Shopco. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
     createdAt: "2024-02-03",
-    verified: true,
+    verified: false,
   },
   {
     id: "r3",
@@ -172,7 +172,7 @@ export const TESTIMONIALS: Review[] = [
     content:
       "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shopco. The selection of clothes is not only stylish but also on-point with the latest trends.",
     createdAt: "2024-02-18",
-    verified: true,
+    verified: false,
   },
 ];
 

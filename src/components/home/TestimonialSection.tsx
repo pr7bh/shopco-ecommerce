@@ -1,113 +1,162 @@
 "use client";
 
-import { useState } from "react";
-import type { RefObject } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { animate, createTimeline, stagger } from "animejs";
 import { StarRating } from "@/components/products/StarRating";
-import { TESTIMONIALS } from "@/lib/mock-data";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { ArrowGlyph } from "@/components/common/ArrowGlyph";
+import { useInViewMotion } from "@/hooks/useInViewMotion";
+import { $, blurIn, fadeUp, prepareBlur, prepareFade, REDUCED_MOTION } from "@/lib/motion";
+import { cn } from "@/lib/utils";
+import type { Review } from "@/types";
 
-function VerifiedIcon() {
-  return (
-    <svg
-      width="15"
-      height="15"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-label="Verified"
-      className="text-green-500"
-    >
-      <circle cx="8" cy="8" r="8" fill="currentColor" />
-      <path
-        d="M5 8l2 2 4-4"
-        stroke="white"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
+export interface TestimonialItem {
+  review: Review;
+  product?: { name: string; slug: string; image: string };
 }
 
-export function TestimonialSection() {
-  const [page, setPage] = useState(0);
-  const ref = useScrollReveal({ selector: ".testimonial-card", staggerDelay: 100 });
-  const perPage = 3;
-  const total = Math.ceil(TESTIMONIALS.length / perPage);
-  const visible = TESTIMONIALS.slice(page * perPage, page * perPage + perPage);
+export function TestimonialSection({ items }: { items: TestimonialItem[] }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const featureRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+  const lastShown = useRef(0);
+  const count = items.length;
+
+  useInViewMotion(sectionRef, {
+    prepare: (root) => {
+      prepareBlur($(root, ".tm-word"));
+      prepareFade($(root, ".tm-meta"));
+    },
+    play: (root) => {
+      const tl = createTimeline();
+      blurIn(tl, $(root, ".tm-word"), 0, 90);
+      fadeUp(tl, $(root, ".tm-meta"), 250, 70);
+    },
+  });
+
+  // New featured review settles in from a soft blur.
+  useLayoutEffect(() => {
+    if (active === lastShown.current) return;
+    lastShown.current = active;
+    const el = featureRef.current;
+    if (!el || window.matchMedia(REDUCED_MOTION).matches) return;
+    const anim = animate(el.children, {
+      opacity: [0, 1],
+      translateY: [18, 0],
+      filter: ["blur(6px)", "blur(0px)"],
+      duration: 700,
+      delay: stagger(70),
+      ease: "outQuart",
+    });
+    return () => {
+      anim.cancel();
+    };
+  }, [active]);
+
+  if (!count) return null;
+  const go = (i: number) => setActive(((i % count) + count) % count);
+  const { review, product } = items[active];
 
   return (
-    <section ref={ref as RefObject<HTMLElement>} className="editorial-section bg-[#F7F6F3]">
-      <div className="shopco-container">
-        {/* Header */}
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <div className="eyebrow text-gray-500 mb-3">
-              WHAT OUR COMMUNITY SAYS
+    <section
+      ref={sectionRef}
+      aria-labelledby="testimonials-heading"
+      className="bg-white py-[clamp(4.5rem,9vw,8.5rem)]"
+      onKeyDown={(e) => {
+        if (e.key === "ArrowRight") go(active + 1);
+        if (e.key === "ArrowLeft") go(active - 1);
+      }}
+    >
+      <div className="shopco-container grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-4">
+          <p className="tm-meta text-[11px] tracking-[0.22em] uppercase text-black/45">Community notes</p>
+          <h2
+            id="testimonials-heading"
+            className="mt-4 font-black uppercase leading-[0.9] tracking-[-0.03em] text-[clamp(2.4rem,5vw,4.25rem)]"
+            style={{ fontFamily: "var(--font-hero)" }}
+          >
+            <span className="tm-word inline-block">In</span> <span className="tm-word inline-block">their</span>{" "}
+            <span className="tm-word inline-block">words</span>
+          </h2>
+          <p className="tm-meta mt-5 max-w-xs border-l-2 border-[#C8BBAA] pl-3 text-xs leading-relaxed text-black/55">
+            Sample reviews — demonstration content for this store, not from real customers.
+          </p>
+
+          <div className="tm-meta mt-10 flex items-center gap-5" role="group" aria-label="Choose review">
+            <span className="text-[11px] tracking-[0.2em] text-black/50 tabular-nums">
+              {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+            </span>
+            <div className="flex flex-1 gap-1.5" aria-hidden>
+              {items.map((item, i) => (
+                <span key={item.review.id} className={cn("h-px flex-1 transition-colors duration-500", i === active ? "bg-black" : "bg-black/15")} />
+              ))}
             </div>
-            <h2
-              className="font-black uppercase leading-none tracking-tight"
-              style={{
-                fontFamily: "var(--font-hero)",
-                fontSize: "clamp(1.75rem, 4vw, 3rem)",
-              }}
-            >
-              REAL PEOPLE,
-              <br />
-              REAL STYLE.
-            </h2>
+            <div className="flex gap-1">
+              <button type="button" onClick={() => go(active - 1)} aria-label="Previous review" className="flex h-11 w-11 items-center justify-center border border-[#EEEEEC] transition-colors hover:border-black">
+                <ArrowGlyph className="rotate-180" />
+              </button>
+              <button type="button" onClick={() => go(active + 1)} aria-label="Next review" className="flex h-11 w-11 items-center justify-center border border-[#EEEEEC] transition-colors hover:border-black">
+                <ArrowGlyph />
+              </button>
+            </div>
           </div>
-          {total > 1 && (
-            <div className="flex items-center gap-2">
-              <button
-                aria-label="Previous testimonials"
-                onClick={() => setPage((p) => Math.max(0, p - 1))}
-                disabled={page === 0}
-                className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-black hover:text-white hover:border-black disabled:opacity-30 transition-all"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                aria-label="Next testimonials"
-                onClick={() => setPage((p) => Math.min(total - 1, p + 1))}
-                disabled={page >= total - 1}
-                className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-black hover:text-white hover:border-black disabled:opacity-30 transition-all"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          )}
         </div>
 
-        {/* Demo disclaimer */}
-        <p className="text-xs text-gray-400 mb-6 -mt-4">
-          Sample reviews for demonstration purposes only.
-        </p>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {visible.map((review) => (
-            <div
-              key={review.id}
-              className="testimonial-card bg-white border border-[#EEEEEC] rounded-[var(--radius-card)] p-7 flex flex-col gap-4"
+        <div className="lg:col-span-7 lg:col-start-6">
+          <figure ref={featureRef} aria-live="polite" className="min-h-[18rem]">
+            <span aria-hidden className="block font-serif text-7xl leading-none text-[#C8BBAA]">
+              &ldquo;
+            </span>
+            <blockquote
+              className="-mt-4 text-[clamp(1.35rem,2.6vw,2.15rem)] font-medium leading-[1.3] tracking-[-0.015em] text-black"
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              {/* Large opening quote */}
-              <div
-                className="text-5xl leading-none font-serif text-[#B8A99A] select-none"
-                aria-hidden
-              >
-                &ldquo;
+              {review.content}
+            </blockquote>
+            <figcaption className="mt-8 flex flex-wrap items-center justify-between gap-6 border-t border-[#EEEEEC] pt-6">
+              <div className="flex items-center gap-4">
+                <StarRating rating={review.rating} size={14} showLabel={false} />
+                <span className="text-sm font-semibold">{review.userName}</span>
+                <span className="text-[11px] tracking-[0.18em] uppercase text-black/40">Sample review</span>
               </div>
-              <StarRating rating={review.rating} size={16} showLabel={false} />
-              <p className="text-sm text-gray-700 leading-relaxed flex-1">
-                {review.content}
-              </p>
-              <div className="flex items-center gap-2 pt-2 border-t border-[#EEEEEC]">
-                <span className="font-semibold text-sm">{review.userName}</span>
-                {review.verified && <VerifiedIcon />}
-              </div>
-            </div>
-          ))}
+              {product && (
+                <Link href={`/products/${product.slug}`} className="group flex items-center gap-3">
+                  <span className="relative block h-14 w-11 overflow-hidden bg-[#F2F2F0]">
+                    <Image src={product.image} alt="" fill sizes="44px" className="object-cover" />
+                  </span>
+                  <span className="text-left">
+                    <span className="block text-[10px] tracking-[0.2em] uppercase text-black/45">Reviewed</span>
+                    <span className="text-sm font-medium text-black underline-offset-4 group-hover:underline">
+                      {product.name}
+                    </span>
+                  </span>
+                </Link>
+              )}
+            </figcaption>
+          </figure>
+
+          {count > 1 && (
+            <ul className="mt-12 grid gap-4 sm:grid-cols-2" aria-label="More sample reviews">
+              {items.map((item, i) =>
+                i === active ? null : (
+                  <li key={item.review.id}>
+                    <button
+                      type="button"
+                      onClick={() => go(i)}
+                      className="group h-full w-full border border-[#EEEEEC] p-5 text-left transition-colors hover:border-black"
+                    >
+                      <span className="flex items-center justify-between">
+                        <span className="text-sm font-semibold">{item.review.userName}</span>
+                        <ArrowGlyph className="transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                      <span className="mt-2 line-clamp-2 block text-sm leading-relaxed text-black/55">{item.review.content}</span>
+                    </button>
+                  </li>
+                )
+              )}
+            </ul>
+          )}
         </div>
       </div>
     </section>

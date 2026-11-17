@@ -1,44 +1,69 @@
 "use client";
 
+import { Fragment, useRef } from "react";
 import Link from "next/link";
-import type { RefObject } from "react";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { createTimeline } from "animejs";
+import { ArrowGlyph } from "@/components/common/ArrowGlyph";
+import { useInViewMotion } from "@/hooks/useInViewMotion";
+import { $, blurIn, fadeUp, prepareBlur, prepareFade } from "@/lib/motion";
+import { cn } from "@/lib/utils";
+
+const LINES: { text: string; accent?: boolean }[] = [
+  { text: "Fashion is not" },
+  { text: "about following." },
+  { text: "It's about", accent: true },
+  { text: "expressing.", accent: true },
+];
 
 export function BrandPhilosophy() {
-  const ref = useScrollReveal({ delay: 100 });
+  const ref = useRef<HTMLElement>(null);
+  useInViewMotion(ref, {
+    threshold: 0.3,
+    prepare: (root) => {
+      prepareBlur($(root, ".ph-word"));
+      prepareFade($(root, ".ph-meta"));
+    },
+    play: (root) => {
+      const tl = createTimeline();
+      blurIn(tl, $(root, ".ph-word"), 0, 95);
+      fadeUp(tl, $(root, ".ph-meta"), 900, 90);
+    },
+  });
+
   return (
-    <section ref={ref as RefObject<HTMLElement>} className="bg-black text-white py-24 md:py-36 overflow-hidden">
+    <section ref={ref} aria-labelledby="philosophy-heading" className="bg-[#F7F6F3] py-[clamp(5.5rem,12vw,11rem)]">
       <div className="shopco-container">
-        <div className="max-w-5xl">
-          <div className="eyebrow text-white/40 mb-8">OUR PHILOSOPHY</div>
-          <h2
-            className="font-black uppercase leading-none tracking-tight mb-10"
-            style={{
-              fontFamily: "var(--font-hero)",
-              fontSize: "clamp(2rem, 6vw, 5.5rem)",
-            }}
-          >
-            STYLE IS NOT
-            <br />
-            ABOUT MORE.
-            <br />
-            <span className="text-[#B8A99A]">
-              IT&rsquo;S ABOUT WHAT
-              <br />
-              MATTERS.
+        <p className="ph-meta text-[11px] tracking-[0.22em] uppercase text-black/45">Our philosophy</p>
+        <h2
+          id="philosophy-heading"
+          className="mt-8 font-black uppercase leading-[0.92] tracking-[-0.035em] text-[clamp(2.4rem,8.2vw,8rem)]"
+          style={{ fontFamily: "var(--font-hero)" }}
+        >
+          {LINES.map((line, li) => (
+            <span key={line.text} className={cn("block", line.accent && "text-[#C8BBAA]", li === 2 && "lg:pl-[12%]", li === 3 && "lg:pl-[24%]")}>
+              {line.text.split(" ").map((word, wi, arr) => (
+                <Fragment key={`${word}-${wi}`}>
+                  <span className="ph-word inline-block">{word}</span>
+                  {wi < arr.length - 1 ? " " : null}
+                </Fragment>
+              ))}
+              {li < LINES.length - 1 ? " " : null}
             </span>
-          </h2>
-          <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-lg mb-10">
-            Every piece in our collection is chosen with intention. We curate
-            thoughtfully, design purposefully, and deliver fashion that feels
-            right.
+          ))}
+        </h2>
+
+        <div className="mt-14 grid grid-cols-1 gap-8 border-t border-black/10 pt-8 md:mt-20 lg:grid-cols-12">
+          <p className="ph-meta text-[11px] tracking-[0.22em] uppercase text-black/45 lg:col-span-3">SHOP.CO — Est. 2026</p>
+          <p className="ph-meta max-w-xl text-base leading-relaxed text-black/70 md:text-lg lg:col-span-6">
+            We choose every piece with intention: honest fabrics, considered fits and colours that work
+            together, so getting dressed becomes a way to say something about yourself.
           </p>
-          <Link
-            href="/shop"
-            className="inline-flex items-center gap-3 border border-white/30 text-white text-xs tracking-widest uppercase px-8 py-4 hover:border-white transition-colors"
-          >
-            DISCOVER OUR STORY
-          </Link>
+          <div className="ph-meta lg:col-span-3 lg:justify-self-end">
+            <Link href="/about#story" className="ed-link text-black">
+              Our story
+              <ArrowGlyph />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

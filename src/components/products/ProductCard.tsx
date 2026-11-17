@@ -12,12 +12,15 @@ import type { Product } from "@/types";
 interface ProductCardProps {
   product: Product;
   className?: string;
+  /** Replaces the default "New" badge, e.g. "Bestseller". */
+  label?: string;
+  sizes?: string;
 }
 
 const SIZES = "(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw";
 const MAX_SWATCHES = 4;
 
-export function ProductCard({ product, className }: ProductCardProps) {
+export function ProductCard({ product, className, label, sizes = SIZES }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
   const [added, setAdded] = useState(false);
 
@@ -41,7 +44,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           src={product.images[0]}
           alt={product.name}
           fill
-          sizes={SIZES}
+          sizes={sizes}
           className="object-cover"
         />
         {product.images[1] && (
@@ -49,20 +52,24 @@ export function ProductCard({ product, className }: ProductCardProps) {
             src={product.images[1]}
             alt=""
             fill
-            sizes={SIZES}
+            sizes={sizes}
             className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           />
         )}
 
-        {(product.isNew || discount) && (
-          <span
-            className={cn(
-              "absolute top-2 left-2 bg-white/90 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em]",
-              discount ? "text-[#C8102E]" : "text-black"
+        {(label || product.isNew || discount) && (
+          <div className="absolute top-2 left-2 flex flex-col items-start gap-1">
+            {(label || product.isNew) && (
+              <span className="bg-white/90 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-black">
+                {label ?? "New"}
+              </span>
             )}
-          >
-            {discount ? `-${discount}%` : "New"}
-          </span>
+            {discount && (
+              <span className="bg-white/90 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-[#C8102E]">
+                -{discount}%
+              </span>
+            )}
+          </div>
         )}
 
         <WishlistButton

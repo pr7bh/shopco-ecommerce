@@ -141,6 +141,16 @@ export function HeroSection() {
     sceneReadyRef.current = sceneReady;
   }, [reduced, sceneReady]);
 
+  // cacheComponents keeps this page alive in a hidden <Activity> when navigating away. Drop the WebGL
+  // hand-off on hide so a return visit reveals the photos and loads the scene again, like a first visit.
+  useLayoutEffect(
+    () => () => {
+      setSceneAllowed(false);
+      setSceneReady(false);
+    },
+    []
+  );
+
   const go = useCallback((target: number) => {
     const next = ((target % COUNT) + COUNT) % COUNT;
     if (next === indexRef.current) return;

@@ -253,6 +253,32 @@
   top: 1rem;
 }
 
+/* Thin scrollbars. Chrome/Safari get 4px via ::-webkit-scrollbar; setting the standard
+   properties there would override it with the wider "thin" size, so Firefox gets those only. */
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--accent-warm-light);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-warm);
+}
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-warm-light) transparent;
+  }
+}
+
 @utility no-scrollbar {
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -445,6 +471,99 @@
   .hero-cta-arrow > svg,
   .hero-link::after {
     animation: none;
+    transition: none;
+  }
+}
+
+/* ── Homepage editorial system ──────────────────────────────── */
+:root {
+  --beige: #c8bbaa;
+}
+
+/* Text link with underline reveal and arrow nudge; inherits colour. */
+.ed-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-block: 0.3rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.ed-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.ed-link svg {
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.ed-link:hover::after,
+.ed-link:focus-visible::after,
+.group:hover .ed-link::after {
+  transform: scaleX(1);
+}
+.ed-link:hover svg,
+.ed-link:focus-visible svg,
+.group:hover .ed-link svg {
+  transform: translateX(4px);
+}
+
+/* Cursor-following image frame: --mx/--my are written by trackPointer(). */
+.ed-frame {
+  position: relative;
+  overflow: hidden;
+  background: #eeeeec;
+}
+.ed-frame .ed-photo {
+  transform: translate3d(calc(var(--mx, 0) * -10px), calc(var(--my, 0) * -10px), 0) scale(var(--zoom, 1.02));
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+}
+.group:hover .ed-frame .ed-photo,
+.ed-frame:hover .ed-photo {
+  --zoom: 1.08;
+}
+.ed-frame .ed-photo-alt {
+  opacity: 0;
+}
+.group:hover .ed-frame .ed-photo-alt {
+  opacity: 1;
+}
+
+/* Horizontal product rail: native scroll + snap for touch, drag for mouse. */
+.ed-rail {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--rail-pad, 0px);
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.ed-rail::-webkit-scrollbar {
+  display: none;
+}
+.ed-rail > * {
+  scroll-snap-align: start;
+}
+.ed-rail[data-dragging="true"] {
+  scroll-snap-type: none;
+  cursor: grabbing;
+}
+.ed-rail[data-dragging="true"] * {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ed-frame .ed-photo,
+  .ed-link::after,
+  .ed-link svg {
     transition: none;
   }
 }
