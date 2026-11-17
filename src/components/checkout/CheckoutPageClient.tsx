@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Check, AlertTriangle } from "lucide-react";
-import { useCartStore } from "@/features/cart/store";
+import { useCartStore, useCartTotals, cartTotals } from "@/features/cart/store";
 import { useCheckoutStore } from "@/features/checkout/store";
 import { useOrdersStore } from "@/features/orders/store";
 import { formatPrice, cn } from "@/lib/utils";
@@ -101,9 +101,10 @@ function StepIndicator({ current }: { current: number }) {
 
 // ── Order summary sidebar ──────────────────────────────────────
 function OrderSummary() {
-  const { items, subtotal, promoDiscount, promoCode } = useCartStore();
+  const items = useCartStore((s) => s.items);
+  const promoCode = useCartStore((s) => s.promoCode);
+  const { subtotal, discount: promoDiscount, shipping: cartShipping } = useCartTotals();
   const { deliveryMethod } = useCheckoutStore();
-  const cartShipping = useCartStore((s) => s.shipping);
   const shipCost = deliveryCost(deliveryMethod, cartShipping);
   const total = subtotal - promoDiscount + shipCost;
 
@@ -199,6 +200,7 @@ const errorClass = "text-red-500 text-xs mt-1";
 export function CheckoutPageClient() {
   const router = useRouter();
   const cart = useCartStore();
+  const { shipping: cartShipping } = useCartTotals();
   const checkout = useCheckoutStore();
   const { addOrder } = useOrdersStore();
 
@@ -248,16 +250,17 @@ export function CheckoutPageClient() {
 
   function handlePlaceOrder() {
     const addr = checkout.shippingAddress as ShippingFormData;
-    const shipCost = deliveryCost(checkout.deliveryMethod, cart.shipping);
-    const total = cart.subtotal - cart.promoDiscount + shipCost;
+    const totals = cartTotals(cart.items, cart.promoCode);
+    const shipCost = deliveryCost(checkout.deliveryMethod, totals.shipping);
+    const total = totals.subtotal - totals.discount + shipCost;
     const id = "SHOPCO-" + Date.now().toString(36).toUpperCase();
 
     addOrder({
       id,
       createdAt: new Date().toISOString(),
       items: cart.items,
-      subtotal: cart.subtotal,
-      promoDiscount: cart.promoDiscount,
+      subtotal: totals.subtotal,
+      promoDiscount: totals.discount,
       shipping: shipCost,
       total,
       promoCode: cart.promoCode,
@@ -278,7 +281,6 @@ export function CheckoutPageClient() {
     router.push(`/order-confirmation?id=${id}`);
   }
 
-  const cartShipping = cart.shipping;
 
   return (
     <div className="shopco-container py-10 pb-20">
@@ -723,7 +725,7 @@ export function CheckoutPageClient() {
                 <p className="text-sm text-[#292929]">
                   {deliveryLabel(checkout.deliveryMethod)}{" "}
                   <span className="text-[#B8A99A]">
-                    — {formatPrice(deliveryCost(checkout.deliveryMethod, cart.shipping))}
+                    — {formatPrice(deliveryCost(checkout.deliveryMethod, cartShipping))}
                   </span>
                 </p>
               </div>

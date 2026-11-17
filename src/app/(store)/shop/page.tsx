@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { ProductCard } from "@/components/products/ProductCard";
 import { FilterSidebar } from "@/components/shop/FilterSidebar";
 import { SortBar } from "@/components/shop/SortBar";
@@ -50,6 +51,8 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
   const title = sp.subcategory
     ? sp.subcategory.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+    : sp.gender === "unisex"
+    ? "Accessories"
     : sp.gender
     ? sp.gender.charAt(0).toUpperCase() + sp.gender.slice(1)
     : sp.category
@@ -69,68 +72,73 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
 
   return (
     <>
-      {/* Editorial header */}
-      <div className="bg-[#292929] py-12 md:py-16">
-        <div className="shopco-container">
-          <p className="eyebrow text-[#B8A99A] mb-4">Collection</p>
+      <div className="shopco-container pt-8 md:pt-12">
+        <p className="eyebrow text-[#B8A99A] mb-2">Shop</p>
+        <div className="flex items-baseline gap-3 flex-wrap">
           <h1
-            className="campaign-heading text-white"
+            className="text-2xl md:text-4xl font-black uppercase tracking-tight"
+            style={{ fontFamily: "var(--font-hero)" }}
           >
             {title}
           </h1>
-          {sp.q && (
-            <p className="text-sm text-[#B8A99A] mt-3">
-              Search results for &ldquo;{sp.q}&rdquo;
-            </p>
-          )}
+          <span className="text-xs text-[#B8A99A]">
+            {total} {total === 1 ? "item" : "items"}
+          </span>
+        </div>
+        {sp.q && (
+          <p className="text-sm text-[#B8A99A] mt-2">
+            Search results for &ldquo;{sp.q}&rdquo;
+          </p>
+        )}
+      </div>
+
+      <div className="sticky top-16 z-30 bg-white/95 backdrop-blur-sm border-b border-[#EEEEEC] mt-6">
+        <div className="shopco-container flex flex-wrap items-center justify-between gap-x-3 gap-y-2 py-3">
+          <nav className="flex w-full sm:w-auto min-w-0 -mx-3 overflow-x-auto no-scrollbar" aria-label="Department">
+            {[
+              { label: "All", value: undefined },
+              { label: "Women", value: "women" },
+              { label: "Men", value: "men" },
+              { label: "Accessories", value: "unisex" },
+            ].map(({ label, value }) => {
+              const active = sp.gender === value || (!sp.gender && value === undefined);
+              return (
+                <Link
+                  key={label}
+                  href={genderHref(value)}
+                  aria-current={active ? "page" : undefined}
+                  className={`px-3 py-2 text-[11px] tracking-[0.12em] uppercase whitespace-nowrap transition-colors ${
+                    active
+                      ? "text-black font-semibold underline underline-offset-[6px]"
+                      : "text-[#8A8A8A] hover:text-black"
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+            <Suspense fallback={null}>
+              <FilterSidebar />
+            </Suspense>
+            <Suspense fallback={null}>
+              <SortBar />
+            </Suspense>
+          </div>
         </div>
       </div>
 
-      <div className="shopco-container py-10">
-        <div className="flex gap-10 items-start">
-          {/* Sidebar — Suspense required because it uses useSearchParams */}
-          <Suspense fallback={null}>
-            <FilterSidebar />
-          </Suspense>
-
-          {/* Product grid */}
-          <div className="flex-1 min-w-0">
-            <Suspense fallback={null}>
-              <SortBar total={total} page={page} pageSize={PAGE_SIZE} />
-            </Suspense>
-
-            {/* Gender filter tabs */}
-            <div className="flex border-b border-[#EEEEEC] mb-6">
-              {[
-                { label: "All", value: undefined },
-                { label: "Women", value: "women" },
-                { label: "Men", value: "men" },
-                { label: "Accessories", value: "unisex" },
-              ].map(({ label, value }) => {
-                const active = sp.gender === value || (!sp.gender && value === undefined);
-                return (
-                  <a
-                    key={label}
-                    href={genderHref(value)}
-                    className={`px-5 py-3 text-xs tracking-widest uppercase transition-colors whitespace-nowrap ${
-                      active
-                        ? "border-b-2 border-black font-semibold text-black"
-                        : "text-gray-400 hover:text-black"
-                    }`}
-                  >
-                    {label}
-                  </a>
-                );
-              })}
-            </div>
-
+      <div className="shopco-container pt-6 pb-16">
+        <div>
+          <div>
             {paginated.length === 0 ? (
               <div className="text-center py-24">
                 <p className="eyebrow text-[#B8A99A] mb-3">No results</p>
                 <p className="text-sm text-gray-500">Try adjusting your filters.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-8 md:gap-x-4 md:gap-y-12">
                 {paginated.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}

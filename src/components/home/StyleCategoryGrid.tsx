@@ -18,7 +18,7 @@ export function StyleCategoryGrid() {
         >
           {/* WOMEN — 3/5 columns, full height */}
           <Link
-            href="/shop?category=casual"
+            href="/shop?gender=women"
             className="md:col-span-3 relative img-zoom rounded-[var(--radius-card)] overflow-hidden block"
           >
             <Image
@@ -47,7 +47,7 @@ export function StyleCategoryGrid() {
           <div className="md:col-span-2 grid grid-rows-2 gap-3 md:gap-4">
             {/* MEN */}
             <Link
-              href="/shop?category=formal"
+              href="/shop?gender=men"
               className="relative img-zoom rounded-[var(--radius-card)] overflow-hidden block"
             >
               <Image
@@ -73,7 +73,7 @@ export function StyleCategoryGrid() {
 
             {/* ACCESSORIES */}
             <Link
-              href="/shop"
+              href="/shop?gender=unisex"
               className="relative img-zoom rounded-[var(--radius-card)] overflow-hidden block bg-[#292929]"
             >
               <Image

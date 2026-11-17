@@ -2,6 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { useShallow } from "zustand/react/shallow";
 import type { CartItem, Product, Size, Color } from "@/types";
 
 const PROMO_CODES: Record<string, { type: "percent" | "fixed"; value: number }> = {
@@ -10,11 +11,13 @@ const PROMO_CODES: Record<string, { type: "percent" | "fixed"; value: number }> 
   NEWUSER: { type: "percent", value: 15 },
 };
 
+export const FREE_SHIPPING_THRESHOLD = 200;
+const STANDARD_SHIPPING = 15;
+
 interface CartState {
   items: CartItem[];
   isOpen: boolean;
   promoCode: string;
-  promoDiscount: number;
 
   addItem: (product: Product, quantity?: number, size?: Size, color?: Color) => void;
   removeItem: (productId: string, size?: Size, color?: Color) => void;
@@ -25,12 +28,32 @@ interface CartState {
   closeCart: () => void;
   applyPromo: (code: string) => boolean;
   removePromo: () => void;
+}
 
-  get itemCount(): number;
-  get subtotal(): number;
-  get shipping(): number;
-  get liveDiscount(): number;
-  get total(): number;
+export interface CartTotals {
+  itemCount: number;
+  subtotal: number;
+  discount: number;
+  shipping: number;
+  total: number;
+}
+
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
+// Derived values must never live in store state: Zustand's set() flattens getters into stale snapshots.
+export function cartTotals(items: CartItem[], promoCode: string): CartTotals {
+  const itemCount = items.reduce((n, i) => n + i.quantity, 0);
+  const subtotal = round2(items.reduce((sum, i) => sum + i.product.price * i.quantity, 0));
+  const promo = PROMO_CODES[promoCode];
+  const rawDiscount = !promo
+    ? 0
+    : promo.type === "percent"
+      ? round2((subtotal * promo.value) / 100)
+      : promo.value;
+  const discount = Math.min(rawDiscount, subtotal);
+  const shipping = itemCount === 0 || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING;
+  const total = round2(subtotal - discount + shipping);
+  return { itemCount, subtotal, discount, shipping, total };
 }
 
 function itemKey(productId: string, size?: Size, color?: Color): string {
@@ -43,7 +66,6 @@ export const useCartStore = create<CartState>()(
       items: [],
       isOpen: false,
       promoCode: "",
-      promoDiscount: 0,
 
       addItem(product, quantity = 1, size, color) {
         set((state) => {
@@ -88,53 +110,34 @@ export const useCartStore = create<CartState>()(
         }));
       },
 
-      clearCart: () => set({ items: [], promoCode: "", promoDiscount: 0 }),
+      clearCart: () => set({ items: [], promoCode: "" }),
       toggleCart: () => set((s) => ({ isOpen: !s.isOpen })),
       openCart: () => set({ isOpen: true }),
       closeCart: () => set({ isOpen: false }),
 
       applyPromo(code) {
-        const promo = PROMO_CODES[code.toUpperCase().trim()];
-        if (!promo) return false;
-        const subtotal = get().subtotal;
-        const discount =
-          promo.type === "percent"
-            ? Math.round((subtotal * promo.value) / 100)
-            : promo.value;
-        set({ promoCode: code.toUpperCase().trim(), promoDiscount: discount });
+        const normalized = code.toUpperCase().trim();
+        if (!PROMO_CODES[normalized]) return false;
+        set({ promoCode: normalized });
         return true;
       },
 
       removePromo() {
-        set({ promoCode: "", promoDiscount: 0 });
-      },
-
-      get itemCount() {
-        return get().items.reduce((sum, i) => sum + i.quantity, 0);
-      },
-      get subtotal() {
-        return get().items.reduce(
-          (sum, i) => sum + i.product.price * i.quantity,
-          0
-        );
-      },
-      get shipping() {
-        return get().subtotal >= 200 ? 0 : 15;
-      },
-      get liveDiscount() {
-        const s = get();
-        if (!s.promoCode) return 0;
-        const promo = PROMO_CODES[s.promoCode];
-        if (!promo) return 0;
-        return promo.type === "percent"
-          ? Math.round((s.subtotal * promo.value) / 100)
-          : promo.value;
-      },
-      get total() {
-        const s = get();
-        return s.subtotal - s.liveDiscount + s.shipping;
+        set({ promoCode: "" });
       },
     }),
-    { name: "shopco-cart" }
+    {
+      name: "shopco-cart",
+      version: 2,
+      partialize: (s) => ({ items: s.items, promoCode: s.promoCode }),
+      migrate: (persisted) => {
+        const p = (persisted ?? {}) as Partial<CartState>;
+        return { items: p.items ?? [], promoCode: p.promoCode ?? "" } as CartState;
+      },
+    }
   )
 );
+
+export function useCartTotals(): CartTotals {
+  return useCartStore(useShallow((s) => cartTotals(s.items, s.promoCode)));
+}

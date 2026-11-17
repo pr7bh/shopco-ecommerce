@@ -5,8 +5,8 @@ export function SeasonalBanner() {
   return (
     <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop&auto=format"
-        alt="The Winter Edit"
+        src="https://images.pexels.com/photos/30374453/pexels-photo-30374453.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+        alt="Quilted winter puffer jackets in turquoise and magenta"
         fill
         sizes="100vw"
         className="object-cover"
@@ -35,7 +35,7 @@ export function SeasonalBanner() {
           essentials crafted for the season.
         </p>
         <Link
-          href="/shop"
+          href="/shop?subcategory=outerwear"
           className="inline-flex items-center gap-3 bg-white text-black text-xs tracking-widest uppercase px-10 py-4 hover:bg-[#F7F6F3] transition-colors"
         >
           SHOP THE COLLECTION

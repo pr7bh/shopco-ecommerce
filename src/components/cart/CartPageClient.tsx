@@ -4,28 +4,23 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Trash2, Minus, Plus, ShoppingBag, X } from "lucide-react";
-import { useCartStore } from "@/features/cart/store";
+import { useCartStore, useCartTotals, FREE_SHIPPING_THRESHOLD } from "@/features/cart/store";
 import { formatPrice } from "@/lib/utils";
 
 export function CartPageClient() {
-  const {
-    items,
-    removeItem,
-    updateQuantity,
-    subtotal,
-    shipping,
-    total,
-    promoCode,
-    liveDiscount,
-    applyPromo,
-    removePromo,
-  } = useCartStore();
+  const items = useCartStore((s) => s.items);
+  const promoCode = useCartStore((s) => s.promoCode);
+  const removeItem = useCartStore((s) => s.removeItem);
+  const updateQuantity = useCartStore((s) => s.updateQuantity);
+  const applyPromo = useCartStore((s) => s.applyPromo);
+  const removePromo = useCartStore((s) => s.removePromo);
+  const clearCart = useCartStore((s) => s.clearCart);
+  const { itemCount, subtotal, discount: liveDiscount, shipping, total } = useCartTotals();
 
   const [promoInput, setPromoInput] = useState("");
   const [promoError, setPromoError] = useState("");
-  const freeShippingThreshold = 200;
-  const freeShippingProgress = Math.min((subtotal / freeShippingThreshold) * 100, 100);
-  const remaining = freeShippingThreshold - subtotal;
+  const freeShippingProgress = Math.min((subtotal / FREE_SHIPPING_THRESHOLD) * 100, 100);
+  const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
 
   function handleApplyPromo() {
     setPromoError("");
@@ -78,7 +73,7 @@ export function CartPageClient() {
           className="ml-4 text-base font-normal text-[#B8A99A] normal-case tracking-normal"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          {items.reduce((n, i) => n + i.quantity, 0)} items
+          {itemCount} {itemCount === 1 ? "item" : "items"}
         </span>
       </h1>
 
@@ -208,7 +203,7 @@ export function CartPageClient() {
 
           <div className="mt-6 flex gap-4">
             <button
-              onClick={() => items.forEach((i) => removeItem(i.product.id, i.size, i.color))}
+              onClick={clearCart}
               className="flex items-center gap-2 text-sm text-[#B8A99A] hover:text-black transition-colors"
             >
               <Trash2 size={13} strokeWidth={1.5} />

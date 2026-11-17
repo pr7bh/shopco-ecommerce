@@ -1,5 +1,6 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWishlistStore } from "@/features/wishlist/store";
@@ -12,9 +13,14 @@ interface WishlistButtonProps {
   size?: number;
 }
 
+const noopSubscribe = () => () => {};
+
 export function WishlistButton({ product, className, size = 16 }: WishlistButtonProps) {
-  const { isWishlisted, toggleItem } = useWishlistStore();
-  const wishlisted = isWishlisted(product.id);
+  // Server HTML has no localStorage; render "not wishlisted" during hydration, then the persisted state.
+  const hydrated = useSyncExternalStore(noopSubscribe, () => true, () => false);
+  const inWishlist = useWishlistStore((s) => s.items.some((p) => p.id === product.id));
+  const toggleItem = useWishlistStore((s) => s.toggleItem);
+  const wishlisted = hydrated && inWishlist;
 
   return (
     <button

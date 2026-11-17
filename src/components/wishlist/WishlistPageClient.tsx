@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/utils";
 
 export function WishlistPageClient() {
   const { items, removeItem } = useWishlistStore();
-  const { addItem } = useCartStore();
+  const addItem = useCartStore((s) => s.addItem);
 
   function moveToCart(productId: string) {
     const product = items.find((p) => p.id === productId);

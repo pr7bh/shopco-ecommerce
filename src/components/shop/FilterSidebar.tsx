@@ -107,27 +107,6 @@ export function FilterSidebar() {
   const inner = (
     <div className="space-y-7">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <span className="eyebrow text-[#292929]">Filters</span>
-        <div className="flex items-center gap-3">
-          {hasFilters && (
-            <button
-              onClick={clearAll}
-              className="eyebrow text-[#B8A99A] hover:text-black transition-colors flex items-center gap-1"
-            >
-              <X size={10} /> Clear All
-            </button>
-          )}
-          <button
-            onClick={() => setOpen(false)}
-            className="lg:hidden text-[#292929] hover:text-black"
-            aria-label="Close filters"
-          >
-            <X size={18} />
-          </button>
-        </div>
-      </div>
-
       {/* Subcategory */}
       <div>
         <p className="eyebrow text-[#B8A99A] mb-4">Category</p>
@@ -242,13 +221,12 @@ export function FilterSidebar() {
 
   return (
     <>
-      {/* Mobile toggle */}
       <button
         onClick={() => setOpen(true)}
-        className="lg:hidden flex items-center gap-2 border border-[#EEEEEC] px-4 py-2.5 eyebrow text-[#292929] hover:border-black transition-colors"
+        className="flex items-center gap-2 h-10 px-4 border border-[#EEEEEC] eyebrow text-[#292929] hover:border-black transition-colors"
       >
-        <SlidersHorizontal size={14} />
-        Filters
+        <SlidersHorizontal size={14} strokeWidth={1.5} />
+        Filter
         {hasFilters && (
           <span className="ml-1 w-5 h-5 bg-black text-white text-[9px] flex items-center justify-center">
             {[currentSubcategory, ...currentSizes, ...currentColors].filter(Boolean).length}
@@ -256,25 +234,35 @@ export function FilterSidebar() {
         )}
       </button>
 
-      {/* Mobile drawer */}
       {open && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Filters">
           <div
             className="absolute inset-0 bg-black/40"
             onClick={() => setOpen(false)}
           />
-          <div className="absolute inset-y-0 left-0 w-72 bg-white p-6 overflow-y-auto">
-            {inner}
+          <div className="absolute inset-y-0 right-0 w-full max-w-sm bg-white overflow-y-auto">
+            <div className="sticky top-0 bg-white flex items-center justify-between px-6 h-16 border-b border-[#EEEEEC]">
+              <span className="eyebrow text-[#292929]">Filter</span>
+              {hasFilters && (
+                <button
+                  onClick={clearAll}
+                  className="ml-auto mr-4 eyebrow text-[#B8A99A] hover:text-black transition-colors"
+                >
+                  Clear all
+                </button>
+              )}
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close filters"
+                className="p-2 -mr-2 hover:opacity-60 transition-opacity"
+              >
+                <X size={18} strokeWidth={1.5} />
+              </button>
+            </div>
+            <div className="p-6">{inner}</div>
           </div>
         </div>
       )}
-
-      {/* Desktop sidebar */}
-      <aside className="hidden lg:block w-56 shrink-0">
-        <div className="sticky top-6">
-          {inner}
-        </div>
-      </aside>
     </>
   );
 }

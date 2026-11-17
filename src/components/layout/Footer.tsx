@@ -115,7 +115,7 @@ const FOOTER_COLS = [
     links: [
       { label: "Women", href: "/shop?gender=women" },
       { label: "Men", href: "/shop?gender=men" },
-      { label: "Kids", href: "/shop" },
+      { label: "Accessories", href: "/shop?gender=unisex" },
       { label: "New Arrivals", href: "/shop?sort=newest" },
       { label: "Sale", href: "/shop?category=sale" },
       { label: "All Products", href: "/shop" },

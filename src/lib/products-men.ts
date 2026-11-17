@@ -16,8 +16,8 @@ export const MEN_PRODUCTS = [
       { name: "Grey Marl", hex: "#8a8a8a" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?auto=format&fit=crop&w=800&h=1067&q=80&crop=focalpoint&fp-x=0.5&fp-y=0.4&fp-z=2",
     ],
     rating: 4.6,
     reviewCount: 342,
@@ -44,8 +44,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5746100/pexels-photo-5746100.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/5746087/pexels-photo-5746087.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 198,
@@ -72,8 +72,8 @@ export const MEN_PRODUCTS = [
       { name: "Forest", hex: "#2d5a27" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/8532638/pexels-photo-8532638.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/8532611/pexels-photo-8532611.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.7,
     reviewCount: 275,
@@ -101,8 +101,8 @@ export const MEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.pexels.com/photos/7432214/pexels-photo-7432214.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/7432217/pexels-photo-7432217.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.3,
     reviewCount: 112,
@@ -129,8 +129,8 @@ export const MEN_PRODUCTS = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&h=1067&q=80&crop=focalpoint&fp-x=0.5&fp-y=0.45&fp-z=2",
     ],
     rating: 4.2,
     reviewCount: 89,
@@ -157,8 +157,7 @@ export const MEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698854/pexels-photo-5698854.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/12955555/pexels-photo-12955555.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.4,
     reviewCount: 143,
@@ -185,8 +184,8 @@ export const MEN_PRODUCTS = [
       { name: "Chocolate", hex: "#4a2c1a" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698851/pexels-photo-5698851.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1786280870376-888fa1b03bba?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1786280870376-888fa1b03bba?auto=format&fit=crop&w=800&h=1067&q=80&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=2",
     ],
     rating: 4.5,
     reviewCount: 167,
@@ -213,8 +212,8 @@ export const MEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5698852/pexels-photo-5698852.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/8532611/pexels-photo-8532611.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.3,
     reviewCount: 94,
@@ -243,8 +242,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/4559608/pexels-photo-4559608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4559608/pexels-photo-4559608.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/7432216/pexels-photo-7432216.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/7432217/pexels-photo-7432217.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.6,
     reviewCount: 221,
@@ -272,8 +271,8 @@ export const MEN_PRODUCTS = [
       { name: "Forest", hex: "#2d5a27" },
     ],
     images: [
-      "https://images.pexels.com/photos/4203083/pexels-photo-4203083.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4203083/pexels-photo-4203083.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9558761/pexels-photo-9558761.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.7,
     reviewCount: 183,
@@ -299,8 +298,8 @@ export const MEN_PRODUCTS = [
       { name: "White", hex: "#FFFFFF" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311652/pexels-photo-6311652.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311652/pexels-photo-6311652.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1570358934903-35c0ff1bd95e?auto=format&fit=crop&w=800&h=1067&q=80&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=2",
+      "https://images.unsplash.com/photo-1570358934903-35c0ff1bd95e?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.4,
     reviewCount: 128,
@@ -327,8 +326,8 @@ export const MEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.pexels.com/photos/5704848/pexels-photo-5704848.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5704848/pexels-photo-5704848.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/9558761/pexels-photo-9558761.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 97,
@@ -356,8 +355,8 @@ export const MEN_PRODUCTS = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1785315532480-61f2fe427dd8?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1785315532480-61f2fe427dd8?auto=format&fit=crop&w=800&h=1067&q=80&crop=focalpoint&fp-x=0.5&fp-y=0.6&fp-z=2",
     ],
     rating: 4.3,
     reviewCount: 72,
@@ -386,8 +385,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311390/pexels-photo-6311390.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.5,
     reviewCount: 203,
@@ -415,8 +414,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311393/pexels-photo-6311393.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.6,
     reviewCount: 134,
@@ -443,8 +442,8 @@ export const MEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.4,
     reviewCount: 178,
@@ -470,8 +469,8 @@ export const MEN_PRODUCTS = [
       { name: "Forest", hex: "#2d5a27" },
     ],
     images: [
-      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4210342/pexels-photo-4210342.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.5,
     reviewCount: 112,
@@ -499,8 +498,8 @@ export const MEN_PRODUCTS = [
       { name: "Light Blue", hex: "#a8c4d8" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.3,
     reviewCount: 89,
@@ -527,8 +526,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311388/pexels-photo-6311388.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311388/pexels-photo-6311388.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.4,
     reviewCount: 65,
@@ -558,8 +557,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311651/pexels-photo-6311651.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311651/pexels-photo-6311651.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9594679/pexels-photo-9594679.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/9594667/pexels-photo-9594667.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.8,
     reviewCount: 487,
@@ -586,8 +585,8 @@ export const MEN_PRODUCTS = [
       { name: "Forest", hex: "#2d5a27" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311653/pexels-photo-6311653.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9594667/pexels-photo-9594667.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/5727047/pexels-photo-5727047.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.6,
     reviewCount: 312,
@@ -614,8 +613,8 @@ export const MEN_PRODUCTS = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.pexels.com/photos/5727047/pexels-photo-5727047.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 193,
@@ -643,8 +642,8 @@ export const MEN_PRODUCTS = [
       { name: "Sage", hex: "#7c9a7e" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.pexels.com/photos/5727047/pexels-photo-5727047.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/9594679/pexels-photo-9594679.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.4,
     reviewCount: 145,
@@ -671,8 +670,8 @@ export const MEN_PRODUCTS = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/6311652/pexels-photo-6311652.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/6311652/pexels-photo-6311652.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/9594679/pexels-photo-9594679.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/9594667/pexels-photo-9594667.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.6,
     reviewCount: 228,
@@ -699,8 +698,8 @@ export const MEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5384423/pexels-photo-5384423.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5727047/pexels-photo-5727047.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.3,
     reviewCount: 108,
@@ -730,8 +729,8 @@ export const MEN_PRODUCTS = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/4210343/pexels-photo-4210343.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4210343/pexels-photo-4210343.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6347879/pexels-photo-6347879.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.8,
     reviewCount: 267,
@@ -758,8 +757,8 @@ export const MEN_PRODUCTS = [
       { name: "Forest", hex: "#2d5a27" },
     ],
     images: [
-      "https://images.pexels.com/photos/5693889/pexels-photo-5693889.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/5693889/pexels-photo-5693889.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.pexels.com/photos/5464589/pexels-photo-5464589.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.6,
     reviewCount: 142,
@@ -786,8 +785,8 @@ export const MEN_PRODUCTS = [
       { name: "Chocolate", hex: "#4a2c1a" },
     ],
     images: [
-      "https://images.pexels.com/photos/4210339/pexels-photo-4210339.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4210339/pexels-photo-4210339.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5464589/pexels-photo-5464589.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/14641438/pexels-photo-14641438.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.7,
     reviewCount: 198,
@@ -815,8 +814,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/4210340/pexels-photo-4210340.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/4210340/pexels-photo-4210340.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/14641438/pexels-photo-14641438.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/5704187/pexels-photo-5704187.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 113,
@@ -845,8 +844,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/6764143/pexels-photo-6764143.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/4210866/pexels-photo-4210866.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 334,
@@ -873,8 +872,8 @@ export const MEN_PRODUCTS = [
       { name: "Denim Blue", hex: "#4a7fa5" },
     ],
     images: [
-      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/4210866/pexels-photo-4210866.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/1082529/pexels-photo-1082529.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.4,
     reviewCount: 198,
@@ -900,8 +899,8 @@ export const MEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/1058683/pexels-photo-1058683.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/1058683/pexels-photo-1058683.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/1082529/pexels-photo-1082529.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/17630811/pexels-photo-17630811.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.3,
     reviewCount: 112,
@@ -928,8 +927,8 @@ export const MEN_PRODUCTS = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/8285483/pexels-photo-8285483.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/33633245/pexels-photo-33633245.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/8408556/pexels-photo-8408556.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 167,
@@ -957,8 +956,8 @@ export const MEN_PRODUCTS = [
       { name: "Black", hex: "#000000" },
     ],
     images: [
-      "https://images.pexels.com/photos/9558567/pexels-photo-9558567.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/9558567/pexels-photo-9558567.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/8408556/pexels-photo-8408556.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/31961165/pexels-photo-31961165.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.4,
     reviewCount: 143,
@@ -985,8 +984,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.pexels.com/photos/9558568/pexels-photo-9558568.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/9558568/pexels-photo-9558568.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/31961165/pexels-photo-31961165.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/33633245/pexels-photo-33633245.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 189,
@@ -1013,8 +1012,8 @@ export const MEN_PRODUCTS = [
       { name: "Ecru", hex: "#f5f0e8" },
     ],
     images: [
-      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067",
-      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop&crop=top"
+      "https://images.pexels.com/photos/5405630/pexels-photo-5405630.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/38581932/pexels-photo-38581932.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.3,
     reviewCount: 98,
@@ -1044,8 +1043,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.pexels.com/photos/30374453/pexels-photo-30374453.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&h=1067&q=80",
     ],
     rating: 4.5,
     reviewCount: 178,
@@ -1072,8 +1071,8 @@ export const MEN_PRODUCTS = [
       { name: "Navy", hex: "#1a2744" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.pexels.com/photos/7790205/pexels-photo-7790205.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/2813366/pexels-photo-2813366.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.8,
     reviewCount: 203,
@@ -1100,8 +1099,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1515664069236-68a74c369d97?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1515664069236-68a74c369d97?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&h=1067&q=80",
+      "https://images.pexels.com/photos/6045058/pexels-photo-6045058.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.6,
     reviewCount: 145,
@@ -1129,8 +1128,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.pexels.com/photos/7778886/pexels-photo-7778886.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/5380086/pexels-photo-5380086.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.5,
     reviewCount: 167,
@@ -1157,8 +1156,8 @@ export const MEN_PRODUCTS = [
       { name: "Stone", hex: "#b8a99a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80&crop=entropy"
+      "https://images.pexels.com/photos/6045058/pexels-photo-6045058.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
+      "https://images.pexels.com/photos/30374453/pexels-photo-30374453.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop",
     ],
     rating: 4.4,
     reviewCount: 112,

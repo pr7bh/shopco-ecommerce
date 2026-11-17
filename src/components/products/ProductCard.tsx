@@ -2,119 +2,117 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
-import { StarRating } from "@/components/products/StarRating";
+import { useState } from "react";
+import { Plus, Check } from "lucide-react";
 import { WishlistButton } from "@/components/products/WishlistButton";
 import { cn, formatPrice, calculateDiscount } from "@/lib/utils";
 import { useCartStore } from "@/features/cart/store";
 import type { Product } from "@/types";
-import { useState } from "react";
 
 interface ProductCardProps {
   product: Product;
   className?: string;
 }
 
+const SIZES = "(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw";
+const MAX_SWATCHES = 4;
+
 export function ProductCard({ product, className }: ProductCardProps) {
-  const { addItem } = useCartStore();
+  const addItem = useCartStore((s) => s.addItem);
   const [added, setAdded] = useState(false);
 
   const discount = product.originalPrice
     ? calculateDiscount(product.originalPrice, product.price)
     : null;
+  const colors = product.colors ?? [];
 
   function handleQuickAdd(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
     addItem(product, 1, product.sizes?.[0], product.colors?.[0]);
     setAdded(true);
-    setTimeout(() => setAdded(false), 1800);
+    setTimeout(() => setAdded(false), 1500);
   }
 
   return (
-    <Link
-      href={`/products/${product.slug}`}
-      className={cn("group flex flex-col", className)}
-    >
-      {/* Image */}
-      <div className="relative bg-[#F7F6F3] aspect-[3/4] overflow-hidden">
+    <Link href={`/products/${product.slug}`} className={cn("group block", className)}>
+      <div className="relative aspect-[2/3] overflow-hidden bg-[#F2F2F0]">
         <Image
           src={product.images[0]}
           alt={product.name}
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover transition-all duration-700 group-hover:scale-105"
+          sizes={SIZES}
+          className="object-cover"
         />
         {product.images[1] && (
           <Image
             src={product.images[1]}
-            alt={product.name}
+            alt=""
             fill
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            sizes={SIZES}
+            className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           />
         )}
 
-        {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-          {product.isNew && (
-            <span className="eyebrow bg-black text-white px-2.5 py-1 text-[9px]">
-              NEW
-            </span>
-          )}
-          {discount && (
-            <span className="eyebrow bg-[#B8A99A] text-white px-2.5 py-1 text-[9px]">
-              -{discount}%
-            </span>
-          )}
-        </div>
-
-        {/* Wishlist */}
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <WishlistButton product={product} size={14} className="w-8 h-8 shadow-sm bg-white" />
-        </div>
-
-        {/* Quick add */}
-        <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-          <button
-            onClick={handleQuickAdd}
+        {(product.isNew || discount) && (
+          <span
             className={cn(
-              "w-full flex items-center justify-center gap-2 py-3 text-xs font-semibold tracking-widest uppercase transition-colors",
-              added
-                ? "bg-[#292929] text-[#B8A99A]"
-                : "bg-black text-white hover:bg-[#292929]"
+              "absolute top-2 left-2 bg-white/90 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em]",
+              discount ? "text-[#C8102E]" : "text-black"
             )}
           >
-            <ShoppingBag size={13} strokeWidth={1.5} />
-            {added ? "✓ Added" : "ADD TO BAG"}
-          </button>
-        </div>
+            {discount ? `-${discount}%` : "New"}
+          </span>
+        )}
+
+        <WishlistButton
+          product={product}
+          size={16}
+          className="absolute top-1.5 right-1.5 w-8 h-8 border-0 bg-transparent hover:bg-white/70"
+        />
+
+        <button
+          onClick={handleQuickAdd}
+          aria-label={added ? `${product.name} added to bag` : `Quick add ${product.name}`}
+          className={cn(
+            "absolute bottom-2 right-2 w-9 h-9 flex items-center justify-center bg-white text-black shadow-sm transition-all duration-200",
+            "md:opacity-0 md:translate-y-1 md:group-hover:opacity-100 md:group-hover:translate-y-0 focus-visible:opacity-100",
+            added && "bg-black text-white md:opacity-100"
+          )}
+        >
+          {added ? <Check size={16} strokeWidth={1.75} /> : <Plus size={16} strokeWidth={1.5} />}
+        </button>
       </div>
 
-      {/* Info */}
-      <div className="pt-3 pb-1">
-        <h3
-          className="text-sm font-medium leading-snug mb-1.5 line-clamp-2 text-[#292929] group-hover:text-black transition-colors"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
+      <div className="pt-2.5 space-y-1">
+        <h3 className="text-[13px] leading-snug text-[#292929] line-clamp-1">
           {product.name}
         </h3>
-        <StarRating
-          rating={product.rating}
-          reviewCount={product.reviewCount}
-          size={12}
-          className="mb-2"
-        />
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-bold text-sm text-black">
+        <p className="text-[13px] flex items-baseline gap-2">
+          <span className={discount ? "text-[#C8102E]" : "text-black"}>
             {formatPrice(product.price)}
           </span>
           {product.originalPrice && (
-            <span className="text-[#B8A99A] line-through text-sm">
+            <span className="text-[#8A8A8A] line-through text-xs">
               {formatPrice(product.originalPrice)}
             </span>
           )}
-        </div>
+        </p>
+        {colors.length > 1 && (
+          <div className="flex items-center gap-1.5 pt-1" aria-label={`${colors.length} colours`}>
+            {colors.slice(0, MAX_SWATCHES).map((c) => (
+              <span
+                key={c.hex}
+                title={c.name}
+                className="w-2.5 h-2.5 border border-black/15"
+                style={{ backgroundColor: c.hex }}
+              />
+            ))}
+            {colors.length > MAX_SWATCHES && (
+              <span className="text-[11px] text-[#8A8A8A]">+{colors.length - MAX_SWATCHES}</span>
+            )}
+          </div>
+        )}
       </div>
     </Link>
   );

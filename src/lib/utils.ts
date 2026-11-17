@@ -6,11 +6,12 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatPrice(amount: number): string {
+  const cents = Math.round(amount * 100) % 100 !== 0;
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
+    minimumFractionDigits: cents ? 2 : 0,
+    maximumFractionDigits: cents ? 2 : 0,
   }).format(amount);
 }
 

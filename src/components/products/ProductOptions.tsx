@@ -22,7 +22,7 @@ const SIZE_LABELS: Record<string, string> = {
 };
 
 export function ProductOptions({ product }: ProductOptionsProps) {
-  const { addItem } = useCartStore();
+  const addItem = useCartStore((s) => s.addItem);
   const [selectedSize, setSelectedSize] = useState<Size | undefined>(product.sizes?.[0]);
   const [selectedColor, setSelectedColor] = useState<Color | undefined>(product.colors?.[0]);
   const [qty, setQty] = useState(1);

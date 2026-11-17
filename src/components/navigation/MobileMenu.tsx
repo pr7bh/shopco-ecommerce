@@ -11,11 +11,11 @@ interface MobileMenuProps {
 }
 
 const PRIMARY_LINKS = [
-  { label: "WOMEN", href: "/shop?category=casual" },
-  { label: "MEN", href: "/shop?category=formal" },
-  { label: "KIDS", href: "/shop" },
-  { label: "SALE", href: "/shop?category=sale" },
-  { label: "NEW ARRIVALS", href: "/shop?sort=newest" },
+  { label: "Women", href: "/shop?gender=women" },
+  { label: "Men", href: "/shop?gender=men" },
+  { label: "Accessories", href: "/shop?gender=unisex" },
+  { label: "New Arrivals", href: "/shop?sort=newest" },
+  { label: "Sale", href: "/shop?category=sale" },
 ];
 
 export function MobileMenu({ onClose }: MobileMenuProps) {
@@ -96,13 +96,6 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
                   {itemCount}
                 </span>
               )}
-            </Link>
-            <Link
-              href="/account"
-              onClick={onClose}
-              className="block text-sm text-gray-600 hover:text-black transition-colors py-2"
-            >
-              Account
             </Link>
           </div>
         </nav>
